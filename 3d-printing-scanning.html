@@ -1,1 +1,255 @@
-<!-- Future File for Group Assignment - 3D Scanning & Printing -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lasercutting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Group Assignment: Week 4</h1>
+  <hr>
+  <p class="w3-xlarge"><strong>3D PRINTING</strong></p>
+  <hr>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div >
+      <h1>3D Printing</h1>
+      <h5 class="w3-padding-32">3D printing, also known as additive manufacturing, is a revolutionary
+         technology that has transformed the way we approach design and manufacturing processes.
+          Unlike traditional subtractive methods, 3D printing builds objects layer by layer from digital models,
+           allowing for intricate and complex shapes that were once challenging or impossible to create. This technology 
+           has found applications across various industries, including aerospace, healthcare, automotive, and consumer goods.
+            It offers unparalleled flexibility, customization, and rapid prototyping capabilities, making it a powerful tool
+             for innovation and production. As 3D printing continues to evolve, it holds the potential to reshape industries 
+             and bring about new possibilities in product development and manufacturing.
+
+
+
+
+
+      </h5>
+      <!-- BEGIN: ed8c6549bwf9 -->
+      <div class="w3-container w3-card w3-light-grey">
+        <ul>
+          <li> Test the design rules for your 3D printer(s)</li>
+          <li>Document your work on the group work page </li>
+          <li>Test the limits of your printer(s)</li>
+        </ul>
+      </div>
+      <!-- END: ed8c6549bwf9 -->
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div>
+
+
+      <h5  class="w3-padding-32"></h5>
+
+      <div class="w3-container w3-card w3-light-grey">
+      <h1>Ultimaker S5</h1>
+      <p>In the FabLab in Kamp-Lintfort there are several, types and models of printers. The first on we tested for the design rules are the Ultimaker S5, because we can print several 
+        things parallel (6 printers).
+      </p>
+      <p>The main features:
+        
+   
+        <ul>
+          <li>Filament sensor</li>
+          <li>Z-Axis-Resolution of 0.02mm </li>
+          <li>Prepared for composite filaments by cured filament drive screw</li>
+          <li> Glass front cover for better heat distribution in the interior</li>
+          <li>Revised feeder with ball bearing for filament change </li>
+          <li>Filament thickness Ø2.85mm</li>
+          <li>Live camera & material recognition</li>
+          <li>Nozzle exchangeable (0.25, 0.4, 0.6, 0.8 mm)</li>
+        </ul>
+      </p>
+      <!-- BEGIN: ed8c6549bwf9 -->
+          <div class="w3-container w3-card w3-light-grey">
+            <p>Adjusting the focus becomes especially important when working with materials of varying thicknesses. Different materials may require slight alterations to the focal point.</p>
+            <p>Explanation of the focal point by <a href="https://journals.sagepub.com/doi/10.1177/09544089211062784?icid=int.sj-abstract.citing-articles.6" target="_blank">Madić et al. 2021</a></p>
+          </div>
+      
+      <!-- BEGIN: ed8c6549bwf9 -->
+      <div style="float: right; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+        <img src="images/kaliper_focus_tool.jpg" alt="Image Description" style="width: 200px; height: auto; border-radius: 5px;">
+      </div>
+      <!-- END: ed8c6549bwf9 -->
+      <p>The first part of our group assignment was setting the focal point of the lasercutter right. 
+        For the lasercutter that we used, a small focussing tool is available that can be attached to the laser head. 
+        The z-axis of the machine then has to be moved such that the surface of the material on the bed touches the bottom of the tool slightly. 
+        By this, the laser should focus exactly on the top of the material. 
+        In case somebody uses thicker materials, it can be compensated by manually moving the z-axis by half of the thickness such that the focal point is in the middle of the material.</p>
+    
+      <div>
+        <p><strong>The last time, the focus of this lasercutter was calibrated and the tool adjusted accordingly, was probably some time ago. However, in order to calibrate it, we used the length of the tool which measured 58.75 mm in total as a rough estimate.</strong></p>
+      </div>
+   
+      <p>From this height as the origin, we moved the lasercutter's bed up and down and did some cuts. With this, it can then be assessed which height corresponds to a focal point on the top of the material by evaluating the thicknesses of the cuts. In case the cut is out of focus, the thickness is increased. Only if the focal point is exactly on top of the material, the cut will have a minium thickness.</p>
+      <p>For the first series of cuts, we started with a relatively rough range of movements, namely from -5 mm to +5 mm with 1 mm steps. For each of the eleven heights, we created a vertical path with a unique color in Rhino with a length of about 2.5 cm in a distance of 0.5 cm to each other.</p>
+
+    <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/Rhino_Lines.JPG" style="width: 900px; height: auto; border-radius: 5px;">
+      </div>
+    </div>
+      <p>From Rhino, this file was sent to the lasercutter via the network by using the printing dialog. In addition to choosing the right lasercutter as a "printer" there were two other settings that were important for this task: The scale had to be set to 1:1 and the colors had to be transmitted because after pressing "Print", the file opened in the lasercutter software where the vertical paths were identified as different objects due to their different colors. This allowed us to selectively turn the paths "On" and "Off" and by this only cut a selected path.</p>
+      <p>In preparation for the cuts, we used the focussing tool on a 3mm MDF board to find the zero position of the laser head. Then we started the series of cuts with the leftmost vertical path corresponding to a distance of +5 mm relative to the zero position. Firstly, we positioned the laser bed to -5.00 mm by moving the joystick down and pressing set. Then, in the lasercutter software we only turned the leftmost path on with a "vector" cut and a speed/power/frequency of 30/60/20 as the manual recommended for 3 mm thick wood. We then sent the lasercutting job to the lasercutter, where we then started the job by pressing "Go".</p>
+    
+    <div class="w3-container w3-card w3-light-grey">
+      <p>We repeated these steps for the remaining lines. Between each cut however, we decreased the distance of the laser head to the material by 1.00 mm and switched all paths to "Off" apart from the desired one. In the end, we obtained the following cuts:</p>
+    </div>
+
+    <p>-------------- Insert Image of cuttings from +5.00 to -5.00 mm <strong>(could not find this image)</strong></p>
+
+    <p>From this photo, it is really easy to say, that a distance of -5 mm relative to the focussing tool length results in a really bad focus as the line is relatively thick and very much burnt. The cut is better for a height of +5 mm but the thinnest and cleanest lines are between a distance of +3 mm and +1 mm. Hence, we selected this range as a second series of cuts with steps of 0.25 mm between them.</p>
+     <div class="w3-container w3-card w3-light-grey">
+      <p>For the second series, including nine cuts, we repeated the steps from above starting at a distance of +3.00 mm to +1.00 mm while moving the laser bed by -0.25 mm between different cuts. In total, we obtained the following cuts:</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/20240208_133741.jpg" style="width: 700px; height: auto; border-radius: 5px;">
+      </div>
+    </div>
+      <p>As you can see, this series of cuts was already a lot cleaner as the first series. The cut for a distance of +3.00 mm however was the worst. However, determining the best cut is relatively tricky as it is hard to see which one really is the thinnest line. Nevertheless, after a bit of discussion in our group, we selected the cuts of +1.50 mm, +1.75 mm and 2.00 mm as the bests. In the end, we increased the length of the focussing tool by 1.75 mm to ensure that the focal point is at the bottom end of the focussing tool and thus on the surface of the material.</p>
+     </div>
+     
+<h5  class="w3-padding-32"></h5>
+
+ <div class="w3-container w3-card w3-light-grey">
+     <h1>Prusa MK i3</h1>
+     <h5 class="w3-padding-32">The kerf is the width of the laser. As this dimension is relatively small, measuring errors must be decreased by measuring a length consisting of multiple kerfs in a row. This can be done by cutting out multiple bars that are separated by a single path and thus a single laser width. We created this file by drawing a horizontal line with a width of 2.5 cm. It was duplicated 14 times, moved below it and distributed vertically with even vertical gaps. The ends were furthermore connected by a line, such that a rectangle with a height of about 10 cm consisting of 14 horizontal bars was created.</h5>
+    <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+         <img src="images/Inkscape photo.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+      </div>
+    </div>
+     <h5 class="w3-padding-32">As the kerf varies for materials as different settings for speed/power/frequency are used. Therefore, we cut the paths from Inkscape on 4mm plywood, 3mm cardboard and 3mm MDF with the optimal settings that we characterized for each material in the previous section. As the laser traveled 15 times horizontally separating the bars, the height of the material cut away by 15 paths can be assessed by measuring (A) the inner height of the rectangle and (B) the height of all rectangles vertically pushed together. To obtain the kerf k, the difference between A and B must be divided by 15, i.e. kerf = (A - B)/15. </h5>
+     <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+         <img src="images/kerf_section.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+      </div>
+    </div>
+    <h5 class="w3-padding-32">With this method, we obtained the kerf to be the following:</h5>
+    
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<table>
+  <tr>
+    <th>Material</th>
+    <th>A [mm]</th>
+    <th>B [mm]</th>
+    <th>Kerf [mm]</th>
+  </tr>
+  <tr>
+    <td>Plywood 4 mm</td>
+    <td>100.60</td>
+    <td>98.01</td>
+    <td>0.17</td>
+  </tr>
+  <tr>
+    <td>Cardboard 3 mm</td>
+    <td>101.8</td>
+    <td>96.7</td>
+    <td>0.34</td>
+  </tr>
+  <tr>
+    <td>MDF 3 mm</td>
+    <td>100.0</td>
+    <td>97.75</td>
+    <td>0.15</td>
+  </tr>
+</table>
+<h5 class="w3-padding-32">As shown, the kerf is relatively small for plywood and MDF which is a typical value. However, for cardboard, the kerf is relatively high. This might be caused as cardboard is material consisting of thin paper-like sheets. The lasercutter hence might easily burn away the sheets inducing a high kerf.</h5>
+    </div>
+    </div>
+  
+
+
+
+    <h5  class="w3-padding-32"></h5>
+
+
+
+    <div class="w3-container w3-card w3-light-grey">
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div>
+   
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
