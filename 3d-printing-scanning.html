@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Lasercutting</title>
+  <title>3D Printing and Scanning</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -82,8 +82,7 @@
 
       <div class="w3-container w3-card w3-light-grey">
         <h1>Testing Parameters</h1>
-        <p>In the FabLab in Kamp-Lintfort there are several, types and models of printers. The first on we tested for the design rules are the Ultimaker S5, because we can print several 
-            things parallel (6 printers).
+        <p>
           </p>
         <h2>Overhang</h2>
         <p>
@@ -93,19 +92,74 @@
         <p>
         To test overhang performance, a common practice is to print a dedicated overhang test model. This model typically features a series of
          horizontal protrusions at varying angles, gradually increasing in difficulty. </p>
-         <p>
-            For testing the overhang we used a file from (?), that included several tests for parameters described below, which tested overhangs of different length and angle. </p>
-        <h2>Anisotropy</h2>
+         <p>By systematically testing overhangs, you can fine-tune your printer settings, such as temperature, cooling, and print speed, to achieve better 
+            results and expand the range of geometries your 3D printer can successfully produce without compromising quality.</p>
+            <p>
+            For testing the overhang we used a file from (?), that included several tests for parameters described below, which tested 
+            overhangs of different length and angle. </p>
+
+            <div style="text-align: center;">
+                <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                  <img src="images/Week05/OverhangCurs.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+                </div>
+              </div>
+              <!-- BEGIN: ed8c6549bwf9 -->
+                  <div class="w3-container w3-card w3-light-grey">
+                    <p>Test for Overhang in Cura. The red color in Cura shows recommended areas of support.</p>
+                  </div>
         <h2>Tolerance</h2>
+        <p>
+        Tolerances in 3D printing refer to the permissible variation in the dimensions of a printed object compared to the intended design.
+         Achieving accurate tolerances is crucial, especially in functional prints where precise fits and interlocking parts are essential. 
+         Testing tolerances helps ensure that the printed object aligns with the design specifications.
+
+        To test tolerances, you can create a calibration model with features designed to evaluate the printer's accuracy. 
+        </p><p>
+        Regularly testing tolerances and calibrating your 3D printer based on the results will contribute to 
+        consistently accurate prints, especially when precision is crucial.</p>
+        <p>
+            We utilized a dedicated calibration test from (?) to evaluate tolerances for both quadratic and round shapes.s</p>
+        
+        <div style="text-align: center;">
+            <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+              <img src="images/Week05/ToleranceTest.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+            </div>
+          </div>
+          <!-- BEGIN: ed8c6549bwf9 -->
+              <div class="w3-container w3-card w3-light-grey">
+                <p>Test for Tolerance in Cura.</p>
+              </div>
+
+        <h2>Anisotropy</h2>
+        <p> in 3D printing refers to the directional variation in material properties within a printed object. 
+        This phenomenon can occur due to the layer-by-layer additive nature of 3D printing, resulting in different strengths or appearances along different axes.</p><p> 
+         Identifying and understanding anisotropy is crucial, especially when structural integrity or surface finish is a priority in the final printed object.</p> 
+         <p>We adopted a calibration test featured on the Fabacademy website, specifically employing a simple angled structure designed to evaluate 
+            the impact of layer building on the breaking surface. The test involves intentionally breaking the printed object at the angled section, allowing us to observe and analyze how the layers influence the position and direction of the fracture. This method provides valuable insights into the layer 
+            adhesion and structural integrity of our 3D prints, aiding in the refinement of our printing parameters for enhanced overall performance.
+         </p>
+         <div style="text-align: center;">
+            <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+              <img src="images/Week05/AnisotropyTest.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+            </div>
+          </div>
+          <!-- BEGIN: ed8c6549bwf9 -->
+              <div class="w3-container w3-card w3-light-grey">
+                <p>Test for Anisotropy in Cura.</p>
+              </div>
+        
         <h2>Wall Thickness</h2>
+        <p>Wall thickness in 3D printing refers to the distance between the outer and inner surfaces of a printed object's walls. It is a crucial parameter,
+         as inadequate wall thickness can compromise the structural integrity and functionality of the
+         printed model. The appropriate wall thickness depends on factors such as the type of material being used and the intended application of the object.</p>
         <h2>Bridging</h2>
         <h2>Growing/Shrinking</h2>
         <h2>Stringing</h2>
         <p>
         </p>
- </div>
+ </div>     
        
-  <h5  class="w3-padding-32"></h5>
+  <h5  class="w3-padding-32"></h5><div class="w3-container w3-card w3-light-grey">
       <h1>Ultimaker S5</h1>
       <p>In the FabLab in Kamp-Lintfort there are several, types and models of printers. The first on we tested for the design rules are the Ultimaker S5, because we can print several 
         things parallel (6 printers).
