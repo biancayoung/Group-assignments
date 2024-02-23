@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Lasercutting</title>
+  <title>3D Printing and Scanning</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -82,8 +82,7 @@
 
       <div class="w3-container w3-card w3-light-grey">
         <h1>Testing Parameters</h1>
-        <p>In the FabLab in Kamp-Lintfort there are several, types and models of printers. The first on we tested for the design rules are the Ultimaker S5, because we can print several 
-            things parallel (6 printers).
+        <p>
           </p>
         <h2>Overhang</h2>
         <p>
@@ -93,69 +92,153 @@
         <p>
         To test overhang performance, a common practice is to print a dedicated overhang test model. This model typically features a series of
          horizontal protrusions at varying angles, gradually increasing in difficulty. </p>
-         <p>
-            For testing the overhang we used a file from (?), that included several tests for parameters described below, which tested overhangs of different length and angle. </p>
-        <h2>Anisotropy</h2>
+         <p>By systematically testing overhangs, you can fine-tune your printer settings, such as temperature, cooling, and print speed, to achieve better 
+            results and expand the range of geometries your 3D printer can successfully produce without compromising quality.</p>
+            <p>
+            For testing the overhang we used a file from thingiverse <a href="https://www.thingiverse.com/thing:2806295">(all-in-one test)</a>, that included several tests for parameters described below, which tested 
+            overhangs of different length and angle. </p>
+
+            <div style="text-align: center;">
+                <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                  <img src="images/Week05/OverhangCurs.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+                </div>
+              </div>
+              <!-- BEGIN: ed8c6549bwf9 -->
+                  <div class="w3-container w3-card w3-light-grey">
+                    <p>Test for Overhang in Cura. The red color in Cura shows recommended areas of support.</p>
+                  </div>
         <h2>Tolerance</h2>
+        <p>
+        Tolerances in 3D printing refer to the permissible variation in the dimensions of a printed object compared to the intended design.
+         Achieving accurate tolerances is crucial, especially in functional prints where precise fits and interlocking parts are essential. 
+         Testing tolerances helps ensure that the printed object aligns with the design specifications.
+
+        To test tolerances, you can create a calibration model with features designed to evaluate the printer's accuracy. 
+        </p><p>
+        Regularly testing tolerances and calibrating your 3D printer based on the results will contribute to 
+        consistently accurate prints, especially when precision is crucial.</p>
+        <p>
+            We utilized a dedicated calibration test from thingiverse <a href="https://www.printables.com/de/model/740643-tolerance-test/files">(tolerance test)</a> to evaluate tolerances for both quadratic and round shapes.</p>
+        
+        <div style="text-align: center;">
+            <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+              <img src="images/Week05/ToleranceTest.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+            </div>
+          </div>
+          <!-- BEGIN: ed8c6549bwf9 -->
+              <div class="w3-container w3-card w3-light-grey">
+                <p>Test for Tolerance in Cura.</p>
+              </div>
+
+        <h2>Anisotropy</h2>
+        <p> in 3D printing refers to the directional variation in material properties within a printed object. 
+        This phenomenon can occur due to the layer-by-layer additive nature of 3D printing, resulting in different strengths or appearances along different axes.</p><p> 
+         Identifying and understanding anisotropy is crucial, especially when structural integrity or surface finish is a priority in the final printed object.</p> 
+         <p>We adopted a calibration test featured on the Fabacademy website <a href="http://academy.cba.mit.edu/classes/scanning_printing/anisotropy.stl">(anisotropy test)</a>, specifically employing a simple angled structure designed to evaluate 
+            the impact of layer building on the breaking surface. The test involves intentionally breaking the printed object at the angled section, allowing us to observe and analyze how the layers influence the position and direction of the fracture. This method provides valuable insights into the layer 
+            adhesion and structural integrity of our 3D prints, aiding in the refinement of our printing parameters for enhanced overall performance.
+         </p>
+         <div style="text-align: center;">
+            <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+              <img src="images/Week05/AnisotropyTest.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+            </div>
+          </div>
+          <!-- BEGIN: ed8c6549bwf9 -->
+              <div class="w3-container w3-card w3-light-grey">
+                <p>Test for Anisotropy in Cura.</p>
+              </div>
+        
         <h2>Wall Thickness</h2>
+        <p>Wall thickness in 3D printing refers to the distance between the outer and inner surfaces of a printed object's walls. It is a crucial parameter,
+         as inadequate wall thickness can compromise the structural integrity and functionality of the
+         printed model. The appropriate wall thickness depends on factors such as the type of material being used and the intended application of the object.</p>
+         <p>We adopted a wall thickness and gap test featured on the thingiverse website <a href="https://www.thingiverse.com/thing:420754">(gap and wall thickness test)</a>. This test serves as the purpose for determining 
+            optimal wall thickness and gap settings, providing insights that are instrumental in refining our approach for future
+            3D printing applications and designs.
+         </p>
+
+         <div style="text-align: center;">
+            <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+              <img src="images/Week05/WallGapTest.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+            </div>
+          </div>
+          <!-- BEGIN: ed8c6549bwf9 -->
+              <div class="w3-container w3-card w3-light-grey">
+                <p>Test for Wall thickness and Gaps from the thingiverse website.</p>
+              </div>
+
+        
+        
+        
         <h2>Bridging</h2>
+        <p>Bridging in 3D printing refers to the ability of a printer to create horizontal spans or bridges between two support structures 
+            without the need for additional supports. 
+        It is a critical aspect of printing complex geometries and can significantly impact the quality and success of a print.</p>
+        <p>Testing bridging capabilities is essential for ensuring that a 3D printer can handle intricate geometries and create stable horizontal spans. 
+            It is particularly important in designs where support structures would be undesirable or difficult to remove. 
+            Regularly testing and optimizing bridging performance contribute to achieving high-quality prints across a variety of applications.</p>
+            <p>The bridging test for the printers was incorporated into the "All-In-One" test mentioned before. <a href="https://www.thingiverse.com/thing:2806295">(all-in-one test)</a></p>
+
+            <div style="text-align: center;">
+                <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                  <img src="images/Week05/BridgingTest.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+                </div>
+              </div>
+              <!-- BEGIN: ed8c6549bwf9 -->
+                  <div class="w3-container w3-card w3-light-grey">
+                    <p>Test for Bridging in Cura. The red color in Cura shows recommended areas of support.</p>
+                  </div>
+
+
+
         <h2>Growing/Shrinking</h2>
+        <p>In 3D printing, "growing" or "shrinking" refers to variations in the size of printed objects compared to their digital design dimensions. 
+        These deviations can occur due to factors such as material shrinkage, thermal effects, or inaccuracies in printer calibration. 
+        Understanding and testing for growing or shrinking is crucial to ensure the printed objects align with the intended specifications.</p>
+        <p>By systematically testing for growing or shrinking, you can refine your 3D printer settings to produce prints that closely match the intended 
+            dimensions. Regular calibration and adjustments based on testing outcomes contribute to the overall accuracy and reliability of your 3D 
+            printing process.</p>
+        <p>We have implemented a growing and shrinking test obtained from  ensuring a evaluation of our 3D printers' dimensional 
+            accuracy for the used type of material. (What test was that?)</p>
+
+        
         <h2>Stringing</h2>
         <p>
         </p>
  </div>
-
-<!-- Third Grid -->
-<h5  class="w3-padding-32"></h5>
-<div class="w3-container w3-card w3-light-grey">
-  <div>
-    <h5 class="w3-padding-32"></h5>
-    <h1>Ultimaker S5</h1>
-    <p>In the FabLab in Kamp-Lintfort there are several, types and models of printers. The first on we tested for the design rules are the Ultimaker S5, because we can print several 
-      things parallel (6 printers).
-    </p>
-    <p>The main features:
-      <ul>
-        <li>Filament sensor</li>
-        <li>Z-Axis-Resolution of 0.02mm </li>
-        <li>Prepared for composite filaments by cured filament drive screw</li>
-        <li> Glass front cover for better heat distribution in the interior</li>
-        <li>Revised feeder with ball bearing for filament change </li>
-        <li>Filament thickness Ø2.85mm</li>
-        <li>Live camera & material recognition</li>
-        <li>Nozzle exchangeable (0.25, 0.4, 0.6, 0.8 mm)</li>
-      </ul>
-    </p>
-    <div style="text-align: center;">
-      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
-        <img src="images/Week05/Ulitmakers.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+       
+  <h5  class="w3-padding-32"></h5>
+      <h1>Ultimaker S5</h1>
+      <p>In the FabLab in Kamp-Lintfort there are several, types and models of printers. The first on we tested for the design rules are the Ultimaker S5, because we can print several 
+        things parallel (6 printers).
+      </p>
+      <p>The main features:
+        
+   
+        <ul>
+          <li>Filament sensor</li>
+          <li>Z-Axis-Resolution of 0.02mm </li>
+          <li>Prepared for composite filaments by cured filament drive screw</li>
+          <li> Glass front cover for better heat distribution in the interior</li>
+          <li>Revised feeder with ball bearing for filament change </li>
+          <li>Filament thickness Ø2.85mm</li>
+          <li>Live camera & material recognition</li>
+          <li>Nozzle exchangeable (0.25, 0.4, 0.6, 0.8 mm)</li>
+        </ul>
+      </p>
+      <div style="text-align: center;">
+        <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+          <img src="images/Week05/Ulitmakers.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+        </div>
       </div>
-    </div>
-    <div class="w3-container w3-card w3-light-grey">
-      <p>Three of the Ultimaker S5 3D printers of the Lab</p>
-    </div>
-    <h2>Overhang, Bridging, Growing/Shrinking and Stringing</h2>
-    <p>
-      In the very beginning, we started with one test piece to print, that is composed of multiple tests claiming to be an
-      all-in-one test print. After downloading the file from 
-      <a href="https://www.thingiverse.com/thing:2806295">here</a>, we dragged and dropped the file into the window of the slicer
-      <a href="https://ultimaker.com/software/ultimaker-cura/">Ultimaker Cura</a>.
-    </p>
-    <p>
-      Next, we adjusted the print settings. Here, we used the "Fast 0.2 mm" profile to save some printing time. Additionally, we left the 
-      remaining print settings as the default because they usually work well. These are usually a layer height of 0.2 mm, an infill of 15%
-      and a triangle pattern,  no supports but a brim for built plate adhesion. The material was furthermore "Generic PLA"
-    </p>
-    
-    <div class="w3-container w3-card w3-light-grey">
-      <p>These print settings were used for all prints on the Ultimaker S5 for characterizing the design rules</p>
-    </div>
-    <p>
-
-    </p>
-    <div style="text-align: center;">
-      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
-        <img src="images/Week05/test-multiple.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+      <!-- BEGIN: ed8c6549bwf9 -->
+          <div class="w3-container w3-card w3-light-grey">
+            <p>Printers we used for the assignments.</p>
+          </div>
+           <div style="text-align: center;">
+        <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+          <img src="images/focalPoint.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+        </div>
       </div>
     </div>  
     
