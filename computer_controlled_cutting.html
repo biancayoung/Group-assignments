@@ -344,7 +344,7 @@
             <h5  class="w3-padding-32"></h5>
 
             <div class="w3-container w3-card w3-light-grey">
-            <h1>Joint clearance: Press Fit, Chamfler, and Finger Joints</h1>
+            <h1>Joint clearance: Press Fit, Chamfer, and Finger Joints</h1>
             <h5 class="w3-padding-32">To achieve optimal fits for press fit, chamfer, and finger joints, it is crucial to determine the right clearances. This can be facilitated through the use of a parametric comb, featuring slots with varying widths based on the kerf of the laser cutter and the thickness of the material. We applied this approach to MDF sheets with thicknesses of 1.5 mm (using a 0.15 mm kerf) and 4 mm (with a 0.17 mm kerf).
               <ul>
                 <li>Input the parameters in Fusion 360</li>
@@ -356,7 +356,7 @@
             <p>For MDF: XYZ When working with plywood, we found that a fit of Thickness + 0.5 Kerf provided the best results. Alternatively, for a slightly looser fit that facilitates easier disassembly, Thickness + 0.25 Kerf proved to be a suitable option. By following this methodical process, we ensured precision and adaptability in our joints, leading to successful outcomes in both MDF and plywood applications for our individual projects.
             </p>
             </h5>
-            <h1>Press Fit:</h1>
+            <h1>Press Fit With Chamfer Joint</h1>
             <h5 class="w3-padding-32">As a first test, we started with the width of the 3mm MDF and reduced it by 0.5mm 24 times. We found that some were too tight and others were too loose. With these tests, we narrowed down to a clearance between 2.59mm (which was a bit too tight) and 2.71mm (which was just the tiniest bit loose). Further tests revealed that the optimal clearance was 2.65mm for 3mm of MDF.</h5>
             <div style="text-align: center;">
               <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
@@ -382,7 +382,7 @@
        <h5  class="w3-padding-32"></h5>
 
        <div class="w3-container w3-card w3-light-grey">
-       <h1> Joint Type</h1>
+       <h1> Joint Type: Flexures</h1>
        <h5 class="w3-padding-32">As a second type of joint, we picked the flexure fit, which consists of two flexible structures extending from the bulk material with a bulge on the end to secure it in place. As we did not know, what thickness the flexures had to be, we designed a comb with different thicknesses of the flexures in relation to the thickness of the material.</h5>
        <h5 class="w3-padding-32">In Fusion 360, we designed the sketch for the comb parametrically accounting for kerf and the clearance. Specifically, the slots between the flexures had a height of the thickness plus 0.5 times the kerf of 0.17 mm, which we discovered to guarantee a good an tight fit for press fits. The flexures were between 1 mm and 3 mm wide which is equivalent to a width of 25% and 75% of the thickness of the material (4mm). From Fusion, the sketch was exported with the add-in "Shaper Original" as an .svg file.       </h5>
       <div style="text-align: center;">
@@ -403,7 +403,7 @@
            <img src="images/03-group_flexure-fit.jpg" style="width: 800px; height: auto; border-radius: 5px;">
           </div>
         </div>
-        <h5 class="w3-padding-32">However, inserting the slots into each other was relatively challenging, as the ends of the flexures were not angled but tough the other piece at an orthogonal orientation. Hence, the flexures did not bend on their own when inserting the other piece but had to be opened by hand, similarly for getting the two combs apart. Therefore, we conclude, that next time, a chamfer-like structure or even fillets might be advantageous for handling this kind of joint.</h5>
+        <h5 class="w3-padding-32">However, inserting the slots into each other was relatively challenging, as the ends of the flexures were not angled but touched the other piece at an orthogonal orientation. Hence, the flexures did not bend on their own when inserting the other piece but had to be opened by hand, similarly for getting the two combs apart. Therefore, we conclude, that next time, a chamfer-like structure or even fillets might be advantageous for handling this kind of joint.</h5>
 
 
      
