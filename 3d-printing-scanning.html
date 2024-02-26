@@ -250,7 +250,7 @@
     </p>
     
     <div class="w3-container w3-card w3-light-grey">
-      <p>These print settings were used for all prints on the Ultimaker S5 for characterizing the design rules</p>
+      <p>These print settings were used for all prints on the Ultimaker S5 for characterizing the design rules.</p>
     </div>
     <p>
 
@@ -321,9 +321,55 @@
       with a wall thickness of 1 mm. The inside diameters were hence designed to be 6 mm and 4 mm, respectively. 
     </p>
     <p>
-      However, in reality,
-      these dimensions deviate. We measured .... INSERT MEASUREMENTS!
+      However, in reality, these dimensions deviate. We measured the following dimensions
     </p>
+
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+    
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+
+    <table>
+      <tr>
+        <th>Cylinder</th>
+        <th>Outer &#x2300;, design</th>
+        <th>Outer &#x2300;, print</th>
+        <th>Inner &#x2300;, design</th>
+        <th>Inner &#x2300;, print</th>
+      </tr>
+      <tr>
+        <td>Left (large)</td>
+        <td>8.00 mm</td>
+        <td>7.75 mm</td>
+        <td>6.00 mm</td>
+        <td>5.7 mm</td>
+      </tr>
+      <tr>
+        <td>Right (small)</td>
+        <td>6.00 mm</td>
+        <td>6.1 mm</td>
+        <td>4.00 mm</td>
+        <td>3.55 mm</td>
+        </tr>
+      </table>
+    <p>
+      For the bigger cylinder, both inside and outside dimensions shrank by about 0.275 mm. For the smaller cylinder however, the inside 
+      of the cylinder shrank by 0.45 mm and the outside grew by 0.1 mm. This suggest that the slicer software, Ultimaker Cura, did not compensate 
+      for any growth or shrinkage of the 3D prints, at least not to a significant extend.
+    </p>
+
     <p> In total, the deviations might appear small but can be relevant for e.g. press fits and other parts, where tolerances are important.</p>
 
     <div style="float: right; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
@@ -399,7 +445,26 @@
       to be able to print. For this, we downloaded an .stl file from 
       <a href="https://www.thingiverse.com/thing:420754">here</a> and printed it with the settings and procedures described above. 
     </p>
-    <p> MORE TEXT AND ADD IMAGE OF PRINT</p>
+    <p> After dismounting the printed parts from the bed, we investigated the print quality. The part for the gap width test for example 
+      shows all gaps, even the smallest one with a thickness of 0.2 mm. However, the smallest gap is so small, it may be already closed by 
+      a thin but yet transparent layer of PLA.
+    </p>
+    <p>
+      When investigating the quality of wall printing, we were quite surprised as even the smallest wall with a thickness of 0.2 mm was printed 
+      by the Ultimaker S5. Usually, traces that would be smaller than the nozzle, are not included in the slicing and thus not in the print. 
+      However, this print states the contrary as the nozzle size is 0.4 mm and a wall with 0.2 mm thickness was printed. We suspect that the 
+      speed of the print in combination with the speed of purging might affect the thickness of the printed filament. This theory might be supported 
+      by the thicker ends of the smallest wall.
+    </p>
+
+    <div style="float: left; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+      <img src="images/Week05/ultimaker-gap.jpg" style="width: 450px; height: auto; border-radius: 5px;">
+      <p> Gap Test</p>
+    </div>
+    <div style="float: right; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+      <img src="images/Week05/ultimaker-wall.jpg" style="width: 450px; height: auto; border-radius: 5px;">
+      <p> Wall Test</p>
+    </div>
   </div>  
 </div>
      
