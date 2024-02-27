@@ -499,13 +499,151 @@
        In addition to the Ultimaker S5, the FabLab has various other printers. However, the most popular one is the Prusa i3 MKS3+ and 
        we will probably use the Prusa for the individual assignments as well. Therefore, we focused on this 3D printer as a second one 
        characterizing the design rules.
-
+       
      </p>
     </h5>
+    <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/Week05/prusa_printer.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="w3-container w3-card w3-light-grey">
+        <p>The Prusa i3 MKS3+ we have at the lab</p>
+      </div>
+      <h2>Overhang, Bridging, Growing/Shrinking and Stringing</h2>
+      <p>
+       We decided to use the same test files used on the Ultimaker, on the Prusa, so that we could compare the results later on. 
+       To prepare these files, we used <a href="https://www.prusa3d.com/en/page/prusaslicer_424/">PrusaSlicer</a>.
+      </p>
+      <p>The print settings we settled on using were: "0.20mm SPEED", filament: "Prusament PLA", no supports, no brim, and 20% infill.</p>
+      
+    <div class="w3-container w3-card w3-light-grey">
+      <p>These print settings were used for all prints on the Prusa i3 MKS3+ for characterizing the design rules.</p>
+    </div>
+    <p>
+
+    </p>
+    <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/Week05/prusa_print_settings.jpg" style="width: 900px; height: auto; border-radius: 5px;">
+      </div>
+    </div>  
+    
+ 
+    
+    <div class="w3-container w3-card w3-light-grey">
+      <p>The following procedure was applied to all prints on the Prusa i3 MKS3+.</p>
+    </div> 
+    <div style="text-align: center;">  
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/Week05/prusa_setup1.jpg" style="width: 28%; height: auto; border-radius: 5px;">
+        <img src="images/Week05/prusa_setup2.jpg" style="width: 33%; height: auto; border-radius: 5px;">
+        <img src="images/Week05/prusa_setup3.jpg" style="width: 33%; height: auto; border-radius: 5px;">
+      </div>
+    </div> 
+    <p>
+      After inserting the SD card with the test files, we selected "Drucken von SD" (our printers are in German) which means "print from SD", then we selected the file we wanted to print and pressed print.
+    </p>
+    <p>
+      The slicer software estimated that the print job would take 4 hours 15 minutes, so we left it to print overnight in the lab. 
+      On the next morning, we gently removed the tests from the printer bed with the help of a scraper tool. 
+      This is the finished print:
+    </p>
+
+    <div style="text-align: center;">
+      <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/Week05/prusa_overhang_test.jpg" style="width: 800px; height: auto; border-radius: 5px;">
+      </div>
+    </div> 
+ 
+    <h3>Overhang</h3>
+    <div style="float: right; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+      <img src="images/Week05/prusa_all_in_one_side.jpg" style="width: 190px; height: auto; border-radius: 5px;">
+      <img src="images/Week05/prusa_all_in_one_test.jpg" style="width: 180px; height: auto; border-radius: 5px;">
+
+    </div>
+    <p>
+      From the side angle, it can be seen that an angle of 75° onwards results in a bad overhang. </p>
+     <p> At an angle of 75° to 70°, the surface is no longer as smooth but still retains its shape. However, from 75° onwards, we see that the filament starts to "droop" or "fall". 
+  
+    </p>
+
+    <h3>Bridging</h3>
+    <div style="float: right; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+      <img src="images/Week05/prusa_bridge_test.jpg" style="width: 273px; height: auto; border-radius: 5px;">
+    </div>
+    <p> 
+      All of the bridge lengths we tested were able to be printed without so much fault, however it is noted that on the two longest bridges with 20mm and 25mm length, the bottom of these prints were not completely smooth and flat, they appeared to have a slight bulge.
+  
+    </p>
+ 
+    <h3>Growing/Shrinking</h3>
+    <div style="float: right; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+      <img src="images/Week05/prusa_shrink_test.jpg" style="width: 273px; height: auto; border-radius: 5px;">
+    </div>
+    <p>
+      The goal of conducting this test is to see how well the slicer software compensates automatically for the potential shrinking or growing of the material. 
+      In the test file, the two cylinders were designed to be 8mm and 6mm, respectively, with a wall thickness of 1mm. The inside diameters were 6mm and 4mm, respectively.
+    </p>
+
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+    
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+
+    <table>
+      <tr>
+        <th>Cylinder</th>
+        <th>Outer &#x2300;, design</th>
+        <th>Outer &#x2300;, print</th>
+        <th>Inner &#x2300;, design</th>
+        <th>Inner &#x2300;, print</th>
+      </tr>
+      <tr>
+        <td>Left (large)</td>
+        <td>8.00 mm</td>
+        <td>8.00 mm</td>
+        <td>6.00 mm</td>
+        <td>5.8 mm</td>
+      </tr>
+      <tr>
+        <td>Right (small)</td>
+        <td>6.00 mm</td>
+        <td>6.00 mm</td>
+        <td>4.00 mm</td>
+        <td>3.75 mm</td>
+        </tr>
+      </table>
+    <p>
+      For both sizes of the cylinders, the outside dimensions were printed as designed. 
+      However, the inside dimensions there was a slight shrinkage of 0.2mm (large cylinder) and 0.25mm (small cylinder).
+        </p>
+        <div style="float: right; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+          <img src="images/Week05/prusa_stringing_test.jpg" style="width: 273px; height: auto; border-radius: 5px;">
+        </div>
+  <h3>Stringing</h3>
+  
+  <p>The Prusa printer, so far relative to the tests conducted, makes better prints than the Cura. However, 
+  for smaller designs and structures like the small extruded cylinders, the printer is prone to stringing, which for detailed prints will require some clean up after printing to get a good finish.
+</p>
+  
   </div>
   
+  
 
-<p>Test</p>
+
 
     <h5  class="w3-padding-32"></h5>
 
@@ -542,4 +680,3 @@ function myFunction() {
 </script>
 
 </body>
-</html>
