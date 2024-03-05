@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Embedded Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif
+        }
+
+        .w3-bar,
+        h1,
+        button {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .fa-anchor,
+        .fa-coffee {
+            font-size: 200px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">Group Assignment: Week 4</h1>
+        <hr>
+        <p class="w3-xlarge"><strong>EMBEDDED PROGRAMMING</strong></p>
+        <hr>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div>
+                <h1>Embedded Programming</h1>
+                <h5 class="w3-padding-32">
+                    <p>
+                        Embedded programming involves writing a program to run on embedded systems, i.e. computing devices 
+                        consisting typically of a (micro-)processor, memory and peripheral systems for input/output which is
+                        designed to perform dedicated functions within larger systems. During programming, a deep understanding 
+                        of hardware constraints is required and good programming skills are beneficial. 
+                    </p>
+                    <p>
+                        A beginner-friendly embedded system is an Arduino board using the Arduino IDE for programming.
+                        For this weeks group assignment, we had to fulfil the following assignments:
+                    </p>
+                </h5>
+                <!-- BEGIN: ed8c6549bwf9 -->
+                <div class="w3-container w3-card w3-light-grey">
+                    <ul>
+                        <li>Browse through the data sheet for your microcontroller</li>
+                        <li>Compare the performance and development workflows for other architectures</li>
+                    </ul>
+                </div>
+                <h5 class="w3-padding-32">
+                    <p>
+                        As the Arduino IDE and its programming language is an easy way to programm a microcontroller, we chose this as 
+                        a first instance. In addition, Frauke already used CircuitPython in her individual assignment, therefore we 
+                        selected this as a second one.
+                    </p>
+                </h5>
+                <!-- END: ed8c6549bwf9 -->
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+
+            <!-- Second Grid -->
+            <div class="w3-container w3-card w3-light-grey">
+                <div>
+                    <h1>Arduino IDE</h1>
+                    <p>
+                        Frauke programmed already two scripts in CircuitPython which both fulfil one part of the individual assignment. 
+                        The first script is about interacting with I/O, the second about a serial communication with a host comuputer.
+                    </p>
+
+                    
+                    <h2>Interacting with I/O</h2>
+                    <p> 
+                        In order to compare the CircuitPython script of Frauke to an Arduino script, we simply translated 
+                        the python code into C++. Here, we simply went through the code line-by-line and translated the 
+                        code. It differs only slightly, e.g. the setup has its own loop in Arduino but not so in (Circuit-)Python.
+                    </p>
+
+                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>const int buttonPin = D0;     // the number of the pushbutton pin
+const int ledPin =  D8;      // the number of the LED pin
+
+int counter = 0;             // counter keeping track of button pushed
+
+unsigned long startTime;      // variable for time when it is started to press the button
+unsigned long stopTime;       // variable for time whhen it is stopped to press the button
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+
+}
+
+void loop() {
+  // check if the pushbutton is pressed. If it is, the buttonState is LOW:
+  if (digitalRead(buttonPin) == LOW) {
+
+    // save the time of start pressing
+    startTime = millis();
+
+    // Advance counter
+    counter = counter +1;
+    
+    // while the button is continued to being pressed
+    while (digitalRead(buttonPin) == LOW){
+      delay(100); // do nothing, wait
+    }
+
+    // Record time of stop pressing
+    stopTime = millis();
+
+    // if button was pressed for less than a second
+    if ((stopTime-startTime) < 1000){
+      // Blink the LED as many times as the counter
+      for (int i = 0; i < counter; i++){
+        digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
+        delay(150);                  // wait for a second
+        digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
+        delay(150);                  // wait for a second
+      }
+    }
+    else {
+      // Reset counter
+      counter = 0;
+    }    
+  }
+}</code></pre>
+                    <p>
+                        Simply said, this script advances a counter by one every time the button is pressed. Additionally, everytime the 
+                        button was pressed, an LED blink as many times as the value of the counter. Lastly, the counter can be reset. 
+                        Here, the time between the start and stop of pressing the button 
+                        is measured. In case it is longer than one second, the counter is reset to zero, otherwise it is advanced.
+                    </p>
+                    <p>
+                        According to the output of the Arduino IDE, this script uses 34252 B of the maximum available 262144 B.
+                    </p>
+
+
+                    <h2>Serial Communication</h2>
+                    <p>
+                        The second script is about the serial communication between the microcontroller and a host computer. 
+                        In case the microcontroller receives the message "1" and LED is switched on, and in case of a "0", the 
+                        LED is switched off. This script is the very same that Frauke already used for her individual assignment.
+                    </p>
+
+                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>// declare and initialize pin for LED
+const int ledPin =  D8;// the number of the LED pin
+
+String value;
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+    // initialize digital pin for LED as an output.
+    pinMode(ledPin, OUTPUT);
+    
+    Serial.begin(9600); // Start serial communication
+    while (!Serial); // Wait until Serial is open
+    Serial.println("listening..."); // Send that Serial is open and listening
+}
+
+// the loop function runs over and over again forever
+void loop() {
+    if (Serial.available() > 0) {
+        // read the incoming string
+        value = Serial.readString();
+        
+        if (value == "1"){
+            digitalWrite(ledPin, HIGH);   // turn the LED on
+            Serial.println("Message '1' received. Turning LED on.");
+        }
+        else if (value == "0"){
+            digitalWrite(ledPin, LOW);   // turn the LED off
+            Serial.println("Message '0' received. Turning LED off.");
+        }
+        else {
+            Serial.print("Unknown message '");
+            Serial.print(value);
+            Serial.println("'. Use '1' and '0' to turn LED on and off.");
+        }
+    }
+}</code></pre>
+                    
+                    <p>
+                        According to the output of the Arduino IDE, this script uses 35164 B of the maximum available 262144 B.
+                    </p>
+
+
+
+
+                </div>  
+            </div>
+
+            <!-- Third Grid -->
+            <h5 class="w3-padding-32"></h5>
+            <div class="w3-container w3-card w3-light-grey">
+                <div>
+                    <h1>CircuitPython</h1>
+                    <p>
+                        As for the Arduino IDE, two scripts were programmed in Python, namely the first one regarding the interaction with 
+                        input and output and the second one about the serial communication with a host computer.
+                    </p>
+
+                    <h2>Interacting with I/O</h2>
+                    <p>
+                        This script is a copy of Frauke's CircuitPython script. It does the very same thing as the first script programmed with Arduino (see above).
+                    </p>
+
+                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>import time
+import board
+from digitalio import DigitalInOut, Direction
+
+# Declare and initialize led and button pins
+led = DigitalInOut(board.D8)
+button = DigitalInOut(board.D0)
+
+# Set led pin to output and button pin to input
+led.direction = Direction.OUTPUT
+button.direction = Direction.INPUT
+
+# Declare and initialize counter
+counter = 0
+
+while True:
+    if button.value == False:
+        start = time.monotonic() # Time at start of pressing button
+        # if button is pressed (INVERTED)
+        counter += 1 	# Advance counter
+        while button.value == False:
+            time.sleep(0.01)
+        stop = time.monotonic() # Time at stopping pressing button   
+        if stop-start <= 1:
+            # If button was pressed less than a second
+            for i in range(counter):
+                # For as many times as the value of counter, do
+                led.value = True	# Turn led off LED (INVERTED!)
+                time.sleep(0.15)	# Wait 1s
+                led.value = False	# Turn led on
+                time.sleep(0.15)	# Wait 1s
+        else: 
+            # Reset counter
+            counter = 0  </code></pre>
+                    <p>
+                        After saving this in the code.py file on the microcontroller that is configured for CircuitPython, the memory size 
+                        it uses is determined by right-clicking on the file and selecting "properites". Here, it says that the file 
+                        uses in total 1003 B.
+                    </p>
+                    <p>
+                        To determine the available memory size of the device, we firstly deleted the script again such that nothing except for the 
+                        default files are saved on the microcontroller. Then we right-clicked on the device and selected "properties" as well opening 
+                        a small dialog. 
+                        Here, it is displayed, that the device has a memory size of 45056 B available.
+                    </p>
+
+                    <h2>Serial Communication</h2>
+                    <p>
+                        The last script is again about the serial communication written in CircuitPython. It again is a copy of one of Frauke's script 
+                        and it achieves the very same behavior as the second script programmed with Arduino (see above).
+                    </p>
+
+
+                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>import supervisor
+import board
+from digitalio import DigitalInOut, Direction
+
+# Declare and initialize led pin
+led = DigitalInOut(board.D8)
+# Set led pin to output
+led.direction = Direction.OUTPUT
+
+print("listening...")
+
+while True:
+    if supervisor.runtime.serial_bytes_available:
+        value = input().strip()
+        # Sometimes Windows sends an extra (or missing) newline - ignore them
+        if value == "":
+            continue
+        elif value == "1":
+            led.value = True
+            print("Message '{}' received. Turning LED on.".format(value))
+        elif value == "0":
+            led.value = False
+            print("Message '{}' received. Turning LED off.".format(value))
+        else:
+            print("Unknown message '{}'. Use '1' and '0' to turn LED on and off".format(value))</code></pre>
+                    <p>
+                        When right-clicking on this file and selecting "properties", it shows in a dialog that this script uses 740 B in total.
+                    </p>
+                </div>  
+            </div>
+
+
+            
+
+
+            <!-- Fourth Grid -->
+            <h5 class="w3-padding-32"></h5>
+            <div class="w3-container w3-card w3-light-grey">
+                <h1>Comparison of Arduino and CircuitPython</h1>
+                <h2>Performance</h2>
+                    <p>
+                        Regarding the performance, we investigated the uptake of the memory as well as the general performance of the 
+                        scripts during running. 
+                    </p>
+                    <p>
+                        For the memory uptake, we looked at the maximum available memory on the device as well as at the memory uptake of the 
+                        scripts. These values are shown for both Arduino and Python scripts in the table below, for both the script for interacting 
+                        with input and output and the serial communication.
+                    </p>
+                    <style>
+                        table {
+                          width: 100%;
+                          border-collapse: collapse;
+                        }
+                      
+                        th, td {
+                          padding: 8px;
+                          text-align: left;
+                          border-bottom: 1px solid #ddd;
+                        }
+                      
+                        th {
+                          background-color: #f2f2f2;
+                        }
+                      </style>
+                    <table>
+                        <tr>
+                            <th>Script</th>
+                            <th>Programming Language</th>
+                            <th>Memory Uptake</th>
+                            <th>Memory Available</th>
+                            <th>Percentage</th>
+                        </tr>
+                        <tr>
+                            <td>Interacting with I/O</td>
+                            <td>Arduino</td>
+                            <td>34252 B</td>
+                            <td>262144 B</td>
+                            <td>13.1 %</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>CircuitPython</td>
+                            <td>1003 B</td>
+                            <td>45056 B</td>
+                            <td>2.2%</td>
+                        </tr>
+                        <tr>
+                            <td>Serial Communication</td>
+                            <td>Arduino</td>
+                            <td>35164 B</td>
+                            <td>262144 B</td>
+                            <td>13.4 %</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>CircuitPython</td>
+                            <td>740 B</td>
+                            <td>45056 B</td>
+                            <td>1.7 %</td>
+                        </tr>
+                    </table>
+                    <p>
+                        As you can see, the Python scripts consume a lot less memory, i.e. about 13.25% for the Arduino vs. 1.95% for Python. 
+                        However, the device has less memory available when configured for CircuitPython. Instead of about 262 KB, the device 
+                        only has about 45 KB available. This shows that the configuration for CircuitPython in general take up more memory, e.g. 
+                        due to the bootloader.
+                    </p>
+                    <p>
+                        In addition to the memory, we also investigated the performance of the microcontroller during running the script.
+                        The first scripts we were using interacted with I/O. As expected, these scripts worked exactly as expected. The LED blinked 
+                        as many times as we have pressed the button previously. In addition, the counter can be reset by pressing the button for 
+                        more than a second. 
+                    </p>
+                    <div style="text-align: center;">
+                        <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                          <div style="display: inline-block; width: 450px; height: auto; border-radius: 5px;">
+                            <video style="width: 400px; height: auto;" controls autoplay loop muted inline>
+                                <source src="images/Week06/blink-counter.mp4" type="video/mp4">
+                            </video>
+                            <div class="w3-container w3-card w3-light-grey">
+                                <p>Interacting with I/O: Blink according to Counter</p>
+                            </div>
+                          </div>  
+                          <div style="display: inline-block; width: 450px; height: auto; border-radius: 5px;">
+                            <video style="width: 400px; height: auto;" controls autoplay loop muted inline>
+                                <source src="images/Week06/blink-counter-reset.mp4" type="video/mp4">
+                            </video>
+                            <div class="w3-container w3-card w3-light-grey">
+                                <p>Interacting with I/O: Resetting the Counter</p>
+                            </div>
+                          </div>  
+                        </div>
+                      </div>
+                    <p>
+                        For the scripts to interact with I/O, we were therefore not able to see any differences in the preformance visually.
+                    </p>
+                    <p>
+                        This is however not true for the second script when using a serial communication between the host computer and the 
+                        microcontroller. The performances when sending messages "1" and "0" can be seen below.
+                    </p>
+                    <div style="text-align: center;">
+                        <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                          <div style="display: inline-block; width: 450px; height: auto; border-radius: 5px;">
+                            <video style="width: 400px; height: auto;" controls autoplay loop muted inline>
+                                <source src="images/Week06/led-switch-communication-arduino.mp4" type="video/mp4">
+                            </video>
+                            <div class="w3-container w3-card w3-light-grey">
+                                <p>Serial Communication using the Arduino IDE</p>
+                            </div>
+                          </div>  
+                          <div style="display: inline-block; width: 450px; height: auto; border-radius: 5px;">
+                            <video style="width: 400px; height: auto;" controls autoplay loop muted inline>
+                                <source src="images/Week06/led-switch-communication-python.mp4" type="video/mp4">
+                            </video>
+                            <div class="w3-container w3-card w3-light-grey">
+                                <p>Serial Communication using CircuitPython</p>
+                            </div>
+                          </div>  
+                        </div>
+                      </div>
+                    <p>
+                        Potentially, the most obvious difference is the blinking of a blue built-in LED when using the Arduino IDE. 
+                        Every time a serial message is received or sent, the blue LED lights up. In addition, the serial communication 
+                        with the Arduino IDE take a lot longer. Here, a delay of maybe half a second between sending a message to the microcontroller 
+                        and receiving a response from the microcontroller that the message was received by the microcontroller is very obvious
+                        for the Arduino IDE. This delay is however not present when using CircuitPython. Also, no blue LED blinks. 
+                    </p>
+                    <p>
+                        Presumably, there is a lot more overhead involved when using the Arduino IDE in contrast to CircuitPython.
+                    </p>
+                    
+                <h2>Development Workflow</h2>
+                <p>
+                    The development workflows when using the Arduino IDE and C++ vs. CircuitPython is quite different. Here, we listed and compared 
+                    the workflows in less detail for an overview. For more details on the exact workflows please refer to  
+                    <a href="https://fabacademy.org/2024/labs/kamplintfort/students/frauke-wassmuth/assignments/assignment06.html">Frauke's</a>
+                    individual assignment about embedded programming.
+                </p>
+                <p>
+                    For the Arduino IDE, everything is more or less configured. After opening it, the user only has to set the right 
+                    board and port to communicate/upload sketches and maybe install some libraries that are required. The Arduino is 
+                    furthermore well developed, maintenance is continuously applied 
+                    and support is offered. Therefore, the Arduino IDE is really beginner-friendly and easy to use making it advantageous 
+                    over CircuitPython with regards to the aspects above.
+                </p>
+                <p>
+                    For CircuitPython, the microcontroller firstly had to be configured to be used with this programming language. When using 
+                    basic programming e.g. interacting with I/O, this is nevertheless easily done. After entering the bootloader mode, the 
+                    bootloader has to be dragged on the device. For more advanced programming, e.g. serial communication with the host computer, 
+                    the IDE has also the be configured for CircuitPython. In this case, we used VS Code, which simply has an extension available 
+                    for CircuitPython. This should have been really easy but we ran into an issue with the latest version and had to install a previous 
+                    one. However, all-in-all, when using the Arduino IDE, the configuration is very easily achieved, more easily than for 
+                    CircuitPython. Furthermore, the CircuitPython community is still growing and gains popularity. However, this also means 
+                    that the support is not so ubiquitous and up to date as for Arduino.
+                </p>
+                <p>
+                    When comparing the uploading behaviour, CircuitPython clearly is advantageous over Arduino. For Arduino, a sketch has to be 
+                    edited in the Arduino IDE and before uploading, the sketch is verified and compiled. This consumes quite a lot of time in 
+                    comparison to CircuitPython. Here, the code.py file on the device can simply be opened with an IDE of your choice (we used 
+                    VS Code). Then, the code can be edited and just by saving the code is uploaded to the device. Here, it must be mentioned, that 
+                    Python is usually a more compact language than C++. However, it is a preference of the programmer which language to choose.
+                </p>
+                <p>
+                    In total, using the Arduino IDE and C++ or CircuitPython are both beneficial in some aspects and disadvantageous in others. 
+                    Therefore, it seems to be a choice everybody has to make for themselves. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+        </p>
+    </footer>
+
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+</body>
