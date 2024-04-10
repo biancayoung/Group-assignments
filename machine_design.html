@@ -158,9 +158,71 @@
 
       <div class="w3-container w3-card w3-light-grey">
       <h2>Pen Holder</h2>
-      <p>To assess the optimal speed, power and frequency, we started with an estimate for these parameters from the manual. As there was no MDF present in the table, we went with the values for wood with a thickness of 3 mm, namely 30, 60 and 20 for speed, power and frequency. Hence, for the sample test, we started with a frequency of 20 and values for the speed of 20, 30 and 40 and for the power of 50, 60 and 70.</p>
-      <p>However, we noticed that none of the squares were actually cut. Therefore, we repeated the sample test fo the same speed with a slightly higher frequency of 30 and a power of 80, 90 and 100.</p>
-
+      <p>
+        The pen holder of the egg painting machine should - as the name says - hold the pen such that the tip is in contact with the egg shell. 
+        In the first meeting about the general layout of the egg painting machine, we already described some basics about the pen holder and the 
+        interfaces with the other teams. These are for example, that it will be moved by the translation stage and therefore needs to be attached 
+        to it and its parts. It should furthermore position the tip of the pen on the eggs shell.
+    </p>
+    <p>
+        There are many things that need to be considered before designing the pen holder. Some major aspects are the method of how to retract the 
+        pen, the contact pressure and the vertical travel it should be able to accomplish. In general, the requirements for the pne holder were 
+        specified to the following.
+    </p>
+    <ul>
+        <li>Attach to translation stage</li>
+        <li>Retractable with a servo motor</li>
+        <li>Tip of pen touches the egg shell on the top</li>
+        <li>Contact pressure between min. 0.5 N and max. 2 N</li>
+        <li>Allows for a vertical travel of 20 mm</li>
+        <li>Pen diameters are max. 18 mm</li>
+    </ul>
+    <p>
+        For the details on the design decisions, please refer to 
+        <a href="https://fabacademy.org/2024/labs/kamplintfort/students/frauke-wassmuth/assignments/assignment10.html">Frauke's documentation</a>.
+    </p>
+    <p>
+        The design itself is relatively simple. There is a part that stands vertically and mounts to the translation stage consisting of 
+        a linear slide and a threaded rod with a nut. In the top of the 
+        part, a hinge is present which connects to another part, which is referred to as the lever arm. On its end, the pen is mounted. With the hinge, 
+        the pen itself can be moved up and down in a slightly curved movement. On the lever arm, a slot is present to be able to attach some weight to 
+        it to precisely adjust the contact pressure. Without the weight, the tip of the pen is loaded with about 0.5 N, depending on the weight of the pen.
+        This is how the design looks like:
+    </p>
+    <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/week10/pen-holder-right.jpg" style="width: 49%; height: auto; border-radius: 5px;">
+        <img src="images/week10/pen-holder-left.jpg" style="width: 49%; height: auto; border-radius: 5px;">
+    </div>
+    <p>
+        As these parts are highly customized, these parts were 3D printed with PLA on a Bambu Lab X1 Carbon with support structures from PLA. 
+        To ease the removal of the support, three layers of the interface between the support and the actual print were printed from PETG. In the 
+        images below, you can see the PLA in black and PETG in green in the slicer software Bambu Studio.
+    </p>
+    <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/week10/mount-sliced1.jpg" style="width: 49%; height: auto; border-radius: 5px;">
+        <img src="images/week10/leverarm-sliced2.jpg" style="width: 49%; height: auto; border-radius: 5px;">
+    </div>
+    <p>
+        After the print was completed, the support structures were removed. After this, the assembly could start. Firstly, the two bearings were pressed 
+        into the positions at the hinge. The tolerances here were big enough to easily press it in without breaking the part. Next, the hinge was completed
+        by inserting a 5 mm rod through it. Then, the servo was positioned between the arms and attached with two M3x12 screws. 
+    </p>
+    <p>
+        Lastly, the pen holder was mounted onto the translation stage. The first step was to tighten the screws in the bottom that mount it to the linear
+        slider. Then, the nut that is mounted to the threaded rod that generates the motion is attached to the pen holder. In the end, the threaded rod 
+        is inserted through the hole of the pen holder and screwed into the nut. This finished the assembly. In general, for more information please refer 
+        to <a href="https://fabacademy.org/2024/labs/kamplintfort/students/frauke-wassmuth/assignments/assignment10.html">Frauke's documentation</a>
+    </p>
+    <div style="display: inline-block; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+        <img src="images/week10/pen-holder-nut.jpg" style="width: 33%; height: auto; border-radius: 5px;">
+        <img src="images/week10/pen-holder-servo.jpg" style="width: 33%; height: auto; border-radius: 5px;">
+        <img src="images/week10/pen-holder-complete.jpg" style="width: 33%; height: auto; border-radius: 5px;">
+    </div>
+    
+    
+    
+    
+    
     </div>
     <!-- END: ed8c6549bwf9 -->
 
