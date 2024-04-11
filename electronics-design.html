@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Electronics Design</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif
+        }
+
+        .w3-bar,
+        h1,
+        button {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .fa-anchor,
+        .fa-coffee {
+            font-size: 200px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">Group Assignment: Week 8</h1>
+        <hr>
+        <p class="w3-xlarge"><strong>ELECTRONICS DESIGN</strong></p>
+        <hr>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div>
+                <h1>Electronics Design</h1>
+                <h5 class="w3-padding-32">
+                    <p>
+                        In electronics design an EDA software, short for electronic design automation, is employed for firstly constructing the 
+                        logics for the schematic circuits and secondly the physical layout of the PCB. Commonly a PCB is designed around a central 
+                        component, the microcontroller. Each microcontroller behaves slightly different. Therefore, our task for this week's 
+                        group assignment was to observe the operation behavior of a microcontroller. Here, at least a multimeter
+                        and an oscilloscope should be used.
+                    </p>
+                    <p>
+                        More precisely, our tasks this week were: 
+                    </p>
+                </h5>
+                <!-- BEGIN: ed8c6549bwf9 -->
+                <div class="w3-container w3-card w3-light-grey">
+                    <ul>
+                        <li>Use the test equipment in your lab to observe the operation of a microcontroller circuit board</li>
+                        <li>Send a PCB out to a board house</li>
+                    </ul>
+                </div>
+                <div class="w3-padding-32">
+                    <p>
+                        Observe the operation of the microcontroller can mean quite many things. However, we investigated three 
+                        operation, namely the power consumption, the output of the "blink" example and a PWM output signal.
+                    </p>
+                </div>
+                <!-- END: ed8c6549bwf9 -->
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+
+            <!-- Second Grid -->
+            <div class="w3-container w3-card w3-light-grey">
+                <div>
+                    <h1>Measuring the Power Consumption</h1>
+                    <p>
+                        The power consumption can be measured with two variables, namely the voltage and the current. The power is simply the 
+                        product of these. 
+                    </p>
+                    
+
+                    
+                    <h2>Using a Bench Power Supply</h2>
+                    <p>
+                        Using a bench power supply is probably the easiest method. In case the power supply is set 
+                        to the required voltage and a load-depended current, the voltage and current can instantly be read from the 
+                        display when the microcontroller is powered by the bench power supply. 
+                    </p>
+                    <div style="float: right; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+                        <img src="images/Week08/bench-power-supply-power-consumption.jpg" alt="Image 1" style="width: 300px; height: auto; border-radius: 5px;">
+                    </div>
+                    <p>
+                        The setup for this is easy. Firstly, the bench power supply is turned on and then the voltage is regulated to about 5.0 V. 
+                        Next, the current limiter is increased by connecting the plus and minus and pressing the "Output" button of the bench power
+                        supply and adjusting the current shown on the display with a turning know. Here, we set a value of about 0.2 A.
+                        Then, after turning the output off again, the plus of the bench power supply was connected to the 5V pin of the
+                        Seeedstudion XIAO and the minus to the ground. Now, the output can be turned on again. With this, the bench power supply 
+                        showed a voltage of 5.01 V and a current of 0.022 A. This equals a power consumption of about 0.11 W. 
+                    </p>
+                    <h2>Using Two Multimeters</h2>
+                    <p>
+                        For measuring the power consumption with multimeter, the voltage and the current also must be captured.
+                        However, when measuring these, the aspect of the arrangement must be considered. For the voltage, 
+                        the multimeter must be arranged in parallel with the microcontroller. For the current, the multimeter must be in series with 
+                        the microcontroller. Therefore, using two multimeters at the same time is beneficial.
+                    </p>
+                    <p>
+                        The setup is shown in the image. The power supply still powers the microcontroller. Additionally, two multimeters are connected
+                        to it, one in series for measuring the current (on the left) and one in parrallel for measureing the voltage (on the right).
+                        Here, the current is shown to be 16.74 mA and 5.03 V. This equals a power of approximately 0.08 W.
+                    </p>
+                    
+                    <div style="display: inline-block; text-align: center; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                        <img src="images/Week08/multimeter-power-consumption.jpg" style="width: 80%; height: auto; border-radius: 5px;">
+                    </div>
+
+                    
+                </div>  
+            </div>
+
+            <!-- Third Grid -->
+            <h5 class="w3-padding-32"></h5>
+            <div class="w3-container w3-card w3-light-grey">
+                <div>
+                    <h1>Blink Example</h1>
+                    <p>
+                        Commonly, an oscilloscope is used to measure (or even generate) waveforms as it allows a 
+                        relatively high time-resolution, contrary to multimeters and bench power supplies. However, they are therefore also 
+                        relatively expensive.
+                    </p>
+
+                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code></code></pre>
+                    
+                </div>  
+            </div>
+
+             <!-- Fourth Grid -->
+             <h5 class="w3-padding-32"></h5>
+             <div class="w3-container w3-card w3-light-grey">
+                 <div>
+                     <h1>Observing Pulse Width Modulation</h1>
+ 
+                     <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code></code></pre>
+                     
+                 </div>  
+             </div>
+
+
+            
+
+
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+        </p>
+    </footer>
+
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+</body>
