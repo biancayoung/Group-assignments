@@ -158,9 +158,38 @@
                         relatively high time-resolution, contrary to multimeters and bench power supplies. However, they are therefore also 
                         relatively expensive.
                     </p>
+                    <p>The first test with the oscilloscope for measuring the change of voltage included the measurement of the voltage for a blinking LED. Therefore, we used the 
+                        PCB from Electronics Production (week 04) of <a href="https://fabacademy.org/2024/labs/kamplintfort/students/sophia-doring/index.html">Sophia Döring</a>.
+                    </p>
+                    <div style="display: inline-block; text-align: center; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                        <img src="images/Week08/BoardFifni.jpg" style="width: 1400 px; height: auto; border-radius: 5px;">
+                    </div>
+                    <p>We used a simple blinking program in the Arduino IDE to get the built in LED to blink.</p>
+                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+                        
+    const int ledPin =  8;// the number of the LED pin
+    
+    // the setup function runs once when you press reset or power the board
+    void setup() {
+        // initialize digital pin LED_BUILTIN as an output.
+        pinMode(ledPin, OUTPUT);
+    }
+    
+    // the loop function runs over and over again forever
+    void loop() {
+        digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
+        delay(1000);                       // wait for a second
+        digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
+        delay(1000);                       // wait for a second
+    }
+    <p></p>                                        
+    
 
-                    <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code></code></pre>
-                    
+                    </code></pre>
+    <video width="90%" autoplay loop muted inline>
+        <source  src="images/Week08/Blinking.mp4" type="video/mp4">
+        
+      </video>                
                 </div>  
             </div>
 
