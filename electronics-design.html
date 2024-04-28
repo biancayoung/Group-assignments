@@ -198,8 +198,36 @@
              <div class="w3-container w3-card w3-light-grey">
                  <div>
                      <h1>Observing Pulse Width Modulation</h1>
- 
-                     <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code></code></pre>
+                     <p> Pulse Width Modulation (PWM) is a technique where a power source is rapidly switched on and off at varying intervals. 
+                        The width of the on-time pulses can be adjusted, allowing control over the average power delivered to a device. It's commonly used in applications 
+                        like motor speed control and LED dimming for its efficient and precise power regulation capabilities.</p>
+                              <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+                        
+    const int PWMpin = 2;
+    
+
+    void setup() {
+        
+        pinMode(PWMpin, OUTPUT);
+    }
+    
+    void loop() {
+        
+            
+            analogWrite(PWMpin, 200);
+            
+        }
+        
+                      
+                                        </code></pre>
+                        
+                    
+                    <p>When measuring the voltage of that pin the multimeter showed a value of 3.9 V. We then measured the voltage with the oscilloscope to see PWM of thr Pin.</p>
+                     
+                    
+                    <div style="display: inline-block; text-align: center; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
+                    <img src="images/Week08/PWM.jpeg" style="width: 80%; height: auto; border-radius: 5px;">
+                </div>   
                      
                  </div>  
              </div>
