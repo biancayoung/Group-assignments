@@ -1,98 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>FA2024 Kamp-Lintfort</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
+  <title>FA2024 Kamp-Lintfort</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+      font-size: 200px
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+  <!-- Navbar -->
+  <div class="w3-top" style="position: absolute; overflow-y: scroll;">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+        href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
 
-  </div>
-
- 
-
-<!-- Banner -->
-<div class="w3-container w3-red w3-center">
-  <h1>Group assignments:</h1>
-</div>
+    </div>
 
 
-<!-- Button with link to other pages -->
-<div class="w3-center">
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="computer_controlled_cutting.html" style="text-decoration: none; color: white;">week 3 - computer controlled cutting</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="Electronics_Production.html" style="text-decoration: none; color: white;">week 4 - electronics production</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="3d-printing-scanning.html" style="text-decoration: none; color: white;">week 5 - 3D printing and scanning</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="embedded-programming.html" style="text-decoration: none; color: white;">week 6 - embedded programming</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="computer-controlled_machining.html" style="text-decoration: none; color: white;">week 7 - computer-controlled machining</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="electronics-design.html" style="text-decoration: none; color: white;">week 8 - electronics design</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="machine_design.html" style="text-decoration: none; color: white;">week 10 - mechanical design, machine design</a>
-    </button>
-  </div>
-  <div class="w3-col">
-    <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
-      <a href="input-devices.html" style="text-decoration: none; color: white;">week 11 - input devices</a>
-    </button>
-  </div>
-</div>
-</div>
+
+    <!-- Banner -->
+    <div class="w3-container w3-red w3-center">
+      <h1>Group assignments:</h1>
+    </div>
 
 
-<footer style="text-align: center;">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
+    <!-- Button with link to other pages -->
+    <div class="w3-center">
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="computer_controlled_cutting.html" style="text-decoration: none; color: white;">week 3 - computer
+            controlled cutting</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="Electronics_Production.html" style="text-decoration: none; color: white;">week 4 - electronics
+            production</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="3d-printing-scanning.html" style="text-decoration: none; color: white;">week 5 - 3D printing and
+            scanning</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="embedded-programming.html" style="text-decoration: none; color: white;">week 6 - embedded
+            programming</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="computer-controlled_machining.html" style="text-decoration: none; color: white;">week 7 -
+            computer-controlled machining</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="electronics-design.html" style="text-decoration: none; color: white;">week 8 - electronics design</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="machine_design.html" style="text-decoration: none; color: white;">week 10 - mechanical design,
+            machine design</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="input-devices.html" style="text-decoration: none; color: white;">week 11 - input devices</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="Molding-Casting.html" style="text-decoration: none; color: white;">week 12 - molding & casting</a>
+        </button>
+      </div>
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-round-large w3-margin-top" style="font-size: 24px;">
+          <a href="networking-communication.html" style="text-decoration: none; color: white;">week 13 - networking &
+            communication</a>
+        </button>
+      </div>
+    </div>
+  </div>
 
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
+
+  <footer style="text-align: center;">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
+
+  <script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
 
 </body>
+
 </html>

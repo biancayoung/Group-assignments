@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Networking & Communication</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif
+        }
+
+        .w3-bar,
+        h1,
+        button {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .fa-anchor,
+        .fa-coffee {
+            font-size: 200px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">Group Assignment: Week 13</h1>
+        <hr>
+        <p class="w3-xlarge"><strong>NETWORKING & COMMUNICATION</strong></p>
+        <hr>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div>
+                <h1>Networking & Communication</h1>
+                <h5 class="w3-padding-32">
+                    <p>
+                        As this week is about networking and communication, we had an assignment to complete that
+                        regarded different
+                        communication protocols between mircocontroller. Here, the assignment were:
+                    </p>
+                </h5>
+                <!-- BEGIN: ed8c6549bwf9 -->
+                <div class="w3-container w3-card w3-light-grey">
+                    <ul>
+                        <li>Send a message between two projects</li>
+                    </ul>
+                </div>
+                <h5 class="w3-padding-32">
+                    <p>
+                        In our case, we concentrated on the two protocols UART and I<sub>2</sub>C.
+                    </p>
+                    <p>
+                        UART stands for "Universal Asynchronous Receiver/Transmitter", where two wires are used
+                        unidirectional to send a message to
+                        and receive a message from another device, respectively. In I<sup>2</sup>C, which is an
+                        abbreviation for Inter-Integrated
+                        Circuit, the wires are used for a serial data line (SDA) and a serial clock line (SCL). It can
+                        be communicated with various
+                        devices by using addresses. However, only one master node can exists. The remaining ones are
+                        slave nods. Nowadays, these
+                        nodes are also called primary and secondary.
+                    </p>
+                </h5>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+
+            <!-- Second Grid -->
+            <div class="w3-container w3-card w3-light-grey">
+                <h1>UART</h1>
+            </div>
+
+            <!-- Third Grid -->
+            <h5 class="w3-padding-32"></h5>
+            <div class="w3-container w3-card w3-light-grey">
+                <h1>I<sub>2</sub>C</h1>
+                <p>
+                    For I<sub>2</sub>C, we firstly searched online for an exemplary script that employs this
+                    communication protocol between two Arduino
+                    boards. Here, we found <a href="https://www.instructables.com/I2C-between-Arduinos/">this</a>
+                    website. We basically followed
+                    the instructions on the website. For this, we firstly programmed the boards. Upon reading and trying
+                    to understand the code,
+                    we discovered some minor errors in the code supplied by the website. However, they were easily
+                    discovered. Therefore, we
+                    uploaded firstly the following master code to an Arduino Nano.
+                </p>
+                <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+    // Include the required Wire library for I2C<br>
+    #include &lt;Wire.h&gt;
+    
+    int x = 0;
+    
+    void setup() {
+        // Start the I2C Bus as Master
+        Wire.begin();   
+    }
+    
+    void loop() {
+        Wire.beginTransmission(9); // transmit to device #9
+        Wire.write(x);             // sends x 
+        Wire.endTransmission();    // stop transmitting
+        
+        x++; // Advance x
+        if (x > 5) x = 0; // reset x once it gets 6
+        delay(1000);
+    }
+                
+                </code></pre>
+                <p>
+                    After that we uploaded the following code, i.e. the slave code, to an Arduino Uno.
+                </p>
+                <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+    // Include the required Wire library for I2C
+    #include &lt;Wire.h&gt;
+    int LED = 13;
+    int x = 0;
+
+    void setup() {  
+        // Define the LED pin as Output
+        pinMode (LED, OUTPUT);
+        
+        // Start the I2C Bus as Slave on address 9
+        Wire.begin(9); 
+        
+        // Attach a function to trigger when something is received.
+        Wire.onReceive(receiveEvent);
+    }
+
+    void receiveEvent(int bytes) {
+        x = Wire.read();    // read one character from the I2C
+    }
+
+    void loop() {
+        //If value received is 0 blink LED for 200 ms
+        if (x == 0) {
+            digitalWrite(LED, HIGH);
+            delay(200);
+            digitalWrite(LED, LOW);
+            delay(200);
+            Serial.println("Blink LED");
+        }
+        //If value received is 3 blink LED for 400 ms
+        if (x == 3) {
+            digitalWrite(LED, HIGH);
+            delay(400);
+            digitalWrite(LED, LOW);
+            delay(400);
+            Serial.println("Blink LED");
+        }
+    }
+                                
+                </code></pre>
+                <p>
+                    Next, we connected the SCL pin of the Arduino Nano to the SCL pin of the Arduino Nano and the
+                    according SDA pins.
+                    Then, we also connected the 5 V and GND pins to the according one on the other board. Lastly, we had
+                    to connect a power source
+                    to the Arduino Uno or Nano with a cable. After plugging it into a socket, we obtained the expected
+                    behaviour.
+                </p>
+                <p>
+                    As we obtained a working system, we proceeded with the board, that
+                    <a
+                        href="https://fabacademy.org/2024/labs/kamplintfort/students/frauke-wassmuth/assignments/assignment08.html">Frauke</a>
+                    and
+                    <a
+                        href="https://fabacademy.org/2024/labs/kamplintfort/students/sophia-doring/assignments/08ElectronicDesign.html">Sophia</a>
+                    made during the electronics design week.
+                    For this, we adapted did not have to adapt anything in the code. The master node was Frauke's board
+                    where the code did not
+                    require any pin declarations. For the slave node, i.e. Sophia's board, the code had one pin
+                    declaration but the LED pin
+                    was the very same as for the Arduino Nano.
+                </p>
+                <p>
+                    Therefore, we also proceeded with just uploading the codes using programmer boards. For the details
+                    please refer to either
+                    <a
+                        href="https://fabacademy.org/2024/labs/kamplintfort/students/frauke-wassmuth/assignments/assignment08.html#testing-programming">
+                        Frauke's</a> or
+                    <a
+                        href="https://fabacademy.org/2024/labs/kamplintfort/students/sophia-doring/assignments/08ElectronicDesign.html#testPCB">
+                        Sophia's</a> documentation. Lastly, we also connected the SCL, SDA, 5 V and ground pins and
+                    powered the boards using a the
+                    USB hub of a computer. This resulted in the same behavior as for the Arduinos, namely an LED that
+                    blinks relatively
+                    fast three times, is off, blinks relatively slow two times and lastly is off again until these
+                    phases repeat.
+                </p>
+                <video width="90%" autoplay loop muted inline>
+                    <source src="images/Week13/i2c-fp-boards.mp4" type="video/mp4">
+                </video>
+                <p>
+                    Lastly, we proceeded with the boards
+                    <a
+                        href="https://fabacademy.org/2024/labs/kamplintfort/students/frauke-wassmuth/assignments/assignment04.html">Frauke</a>
+                    and <a
+                        href="https://fabacademy.org/2024/labs/kamplintfort/students/sophia-doring/assignments/04ElectronicsProduction.html">Sophia</a>
+                    made during the electronics production week which bears a Seeed Studio XIAO SAMD21 chip.
+                    The code was only adjusted slightly, i.e. the pin declaration for the LED in the slave code was
+                    changed to
+                </p>
+                <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+                    
+    int LED = 8;
+
+                </code></pre>
+                <p>
+                    Then, we again connected the boards and powered them as described above. However, we were not able
+                    to see the expected
+                    blinking behavior. Therefore, we implemented the <code>Serial.begin(9600);</code> in the
+                    <code>setup()</code> function
+                    of the master code. Next, instead of ending the I<sub>2</sub>C transmission with
+                    <code>Wire.endTransmission();</code>
+                    we changed the line to the following:
+                </p>
+                <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+                    
+    int status_wire = Wire.endTransmission();
+    Serial.println(status_wire);
+                
+                </code></pre>
+                <p>
+                    Upon opening the serial monitor in the Arduino IDE, the <code>Wire.endTransmission();</code>
+                    apparently returned the
+                    integer "3". We asked ChatGPT
+                </p>
+                <ul style="border: solid 1px #ccc; font-size: 0.85em;">
+                    <p></p>
+                    <li>
+                        Incorrect I2C Address: Make sure that you are using the correct I2C address for the slave
+                        device. Double-check the address specified in your code against the address provided in the
+                        datasheet or documentation of the device.
+                    </li>
+                    <li>
+                        Missing or Misconnected Pull-up Resistors: Ensure that pull-up resistors are correctly connected
+                        to both the SDA and SCL lines of the I2C bus. Pull-up resistors are essential for proper
+                        communication on the I2C bus. Without them, the bus lines may not reach the high logic level
+                        properly, leading to communication errors.
+                    </li>
+                    <li>
+                        Problem with the Slave Device: The slave device may not be functioning correctly or may not be
+                        properly connected to the I2C bus. Check the connections and ensure that the slave device is
+                        powered and properly initialized.
+                    </li>
+                    <li>
+                        Bus Capacitance or Noise: High bus capacitance or electrical noise on the I2C bus can cause
+                        communication issues, including NACK errors. Minimize long wire lengths and avoid routing I2C
+                        lines near sources of electrical noise.
+                    </li>
+                    <li>
+                        Clock Speed: Ensure that the clock speed of your I2C communication is compatible with the slave
+                        device. Some devices may have limitations on the maximum clock speed they can support.
+                    </li>
+                    <li>
+                        Device Busy: The slave device may be busy processing a previous command and unable to respond to
+                        the address sent by the master. Ensure that the slave device has completed any previous
+                        operations before initiating a new communication.
+                    </li>
+                    <p></p>
+                </ul>
+                <p>
+                    From this list of error causes, we ruled out most of them as the code was working fine with the other boards
+                    and due to the fact.However, we were left with the cause "Missing or Misconnected Pull-up Resistors". Therefore, 
+                    we tried connecting the SCL and SDA pin high with a 10 kiloohm pull-up resistor, respectively, by using a breadboard.
+                    And this actually worked!
+                </p>
+
+                <video width="90%" autoplay loop muted inline>
+                    <source src="images/Week13/i2c-seeduinos.mp4" type="video/mp4">
+                </video>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+        </p>
+    </footer>
+
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+</body>
