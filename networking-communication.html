@@ -81,7 +81,7 @@
                 </div>
                 <h5 class="w3-padding-32">
                     <p>
-                        In our case, we concentrated on the two protocols UART and I<sub>2</sub>C.
+                        In our case, we concentrated on the two protocols UART and I<sup>2</sup>C.
                     </p>
                     <p>
                         UART stands for "Universal Asynchronous Receiver/Transmitter", where two wires are used
@@ -111,9 +111,9 @@
             <!-- Third Grid -->
             <h5 class="w3-padding-32"></h5>
             <div class="w3-container w3-card w3-light-grey">
-                <h1>I<sub>2</sub>C</h1>
+                <h1>I<sup>2</sup>C</h1>
                 <p>
-                    For I<sub>2</sub>C, we firstly searched online for an exemplary script that employs this
+                    For I<sup>2</sup>C, we firstly searched online for an exemplary script that employs this
                     communication protocol between two Arduino
                     boards. Here, we found <a href="https://www.instructables.com/I2C-between-Arduinos/">this</a>
                     website. We basically followed
@@ -249,7 +249,7 @@
                     to see the expected
                     blinking behavior. Therefore, we implemented the <code>Serial.begin(9600);</code> in the
                     <code>setup()</code> function
-                    of the master code. Next, instead of ending the I<sub>2</sub>C transmission with
+                    of the master code. Next, instead of ending the I<sup>2</sup>C transmission with
                     <code>Wire.endTransmission();</code>
                     we changed the line to the following:
                 </p>
@@ -315,8 +315,8 @@
         <div class="w3-container w3-card w3-light-grey">
             <h1>Design Files and Source Code for Download </h1>
             <ul>	
-            <li><a href="files/week13/master-code.ino">Master Code (.ino)</a>: Arduino sketch for master code for 1<sub>2</sub>C communication</li>
-            <li><a href="files/week13/slave-code.ino">Slave Code (.ino)</a>: Arduino sketch for slave code for 1<sub>2</sub>C communication</li>
+            <li><a href="files/week13/master-code.ino">Master Code (.ino)</a>: Arduino sketch for master code for 1<sup>2</sup>C communication</li>
+            <li><a href="files/week13/slave-code.ino">Slave Code (.ino)</a>: Arduino sketch for slave code for 1<sup>2</sup>C communication</li>
             </ul>
 
         </div>
