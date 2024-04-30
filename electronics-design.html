@@ -182,10 +182,18 @@
         digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
         delay(1000);                       // wait for a second
     }
-    <p></p>                                        
-    
-
-                    </code></pre>
+                                          
+    </code></pre>
+    <p>
+        To measure the voltage of the blinking pin, we attached the two end of one input of the oscilloscope to the according pin and the 
+        ground. While the oscilloscope was in the "running" state, it showed the high and low voltage that is alternating on the display as 
+        a horizontal line jumps up and down. By turning a certain know, the x-axis can be scaled such that the high and low phases were visible 
+        simultaneously.
+    </p>
+    <p>
+        It is also possible to measure certain parameters with the oscilloscope. In this case, we measured the amplitude which was
+        found to be exactly 3.3V which is in accordance to the operating voltage of the microconroller.
+    </p>
     <video width="90%" autoplay loop muted inline>
         <source  src="images/Week08/Blinking.mp4" type="video/mp4">
         
@@ -202,28 +210,25 @@
                         The width of the on-time pulses can be adjusted, allowing control over the average power delivered to a device. It's commonly used in applications 
                         like motor speed control and LED dimming for its efficient and precise power regulation capabilities.</p>
                               <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
-                        
     const int PWMpin = 2;
-    
-
     void setup() {
-        
         pinMode(PWMpin, OUTPUT);
     }
-    
+        
     void loop() {
-        
-            
-            analogWrite(PWMpin, 200);
-            
-        }
-        
-                      
-                                        </code></pre>
+        analogWrite(PWMpin, 200);
+    }
+
+</code></pre>
                         
                     
-                    <p>When measuring the voltage of that pin the multimeter showed a value of 3.9 V. We then measured the voltage with the oscilloscope to see PWM of thr Pin.</p>
-                     
+                    <p>When measuring the voltage of that pin the multimeter showed a value of 2.6 V. We then measured the voltage with the oscilloscope to see PWM of the pin.</p>
+                     <p> 
+                        There are various parameters that can be measured. Here, we measured the amplitude which was 3.3 V. The frequency was 732.60 Hz and 
+                        the duty cycle was 78.13%. The latter matched the specified duty cycle quite well. The <code>analogWrite</code> function in the 
+                        code above set the PWM duty cycle to 200 of 255 which is 78.43 %. With an amplitude of 3.3 V, this averages to a voltage of 
+                        2.6 V which is the voltage we measured with the multimeter.
+                     </p>
                     
                     <div style="display: inline-block; text-align: center; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
                     <img src="images/Week08/PWM.jpeg" style="width: 80%; height: auto; border-radius: 5px;">
