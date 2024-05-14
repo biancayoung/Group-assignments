@@ -86,13 +86,55 @@
 
             <!-- Second Grid -->
             <div class="w3-container w3-card w3-light-grey">
-                <h1></h1>
+                <h1>Hall efect sensor</h1>
+                <p>Hall Effect sensors operate based on the Hall Effect phenomenon. 
+                    When a current-carrying conductor or semiconductor is exposed to a perpendicular magnetic field, 
+                    it induces a voltage across the conductor. This voltage, known as the Hall voltage ((V_H)), is directly proportional to the magnetic field strength.
+                </p>
+                <img src="images/week11/_SEO-0011_Fig1-_960_x_765.jpg" alt="Image Description" style="width: 100%; height: auto; border-radius: 5px;">
+
+                    <p>
+                    Linear Hall Effect sensors provide an analog output voltage that varies linearly with the strength of the magnetic field. these sensors work by measuring the changing voltage when the device is placed in a magnetic field. so by bringing a magnet close to the sensor, the voltage will change.
+                </p>
+
+                <p>
+                    So for the group assignment, I will use a oscilloscope to measure the voltage change when a magnet is brought close to the sensor. and also by checking the sensor data sheet we can observe this. <a href= "https://www.diodes.com/assets/Datasheets/AH49E.pdf">here</a>
+                </p>
+             
             </div>
             
             <!-- Third Grid -->
             <h5 class="w3-padding-32"></h5>
             <div class="w3-container w3-card w3-light-grey">
-                <h1></h1>
+                <h1>Oscilloscope</h1>
+                <p>
+                    An oscilloscope is a device that is used to measure and display voltage signals as a function of time. 
+                </p>
+                 <h2>connecting to the Oscilloscope</h2>
+                <ul>
+                    <li>Connect the Hall Effect sensor’s outputs to one of the oscilloscope’s analog input channels and digital channels.</li>
+                        <li>Connect the sensor's ground and power to a micro-controller as well as the oscilloscope’s grounds.</li>
+                        <li>Connect the micro-controller to a computer or power supply to provide 5V power to the sensor.</li>
+                    </ul>
+                </div>
+                    <div class="w3-container w3-card w3-light-grey">
+
+                    <h2>Analog signals</h2>
+                    <p>
+                        Analog is represented by the yellow trace on the oscilloscope. This does not actually measure the voltage but instead the average amplitude which is the strength of the magnet and its magnetic field in a certain distance to the sensor.
+                        By setting the oscilloscope to coupling ac, the oscilloscope will measure the average amplitude of the signal. To further test this, we changed the sensitivity of the sensor (this is done by turning a little knob on the sensor with a screwdriver (this acts as a potentiometer)).
+                </p>
+
+                <h1>Min sensitivity</h1>
+                <p>By setting the sensor's sensitivity to the lowest, we observed smaller changes in the signal. This is because the sensor is less sensitive to the magnetic field.</p>
+                <h1>Max sensitivity</h1>
+                <p>By setting the sensor's sensitivity to the highest, we observed larger changes in the signal. This means there is a bigger amplitude between the analog levels.</p>
+                 </div>
+                 <div class="w3-container w3-card w3-light-grey">
+                <h2>Digital signals</h2>
+                <p>
+                    Digital is represented by the blue trace on the oscilloscope. This measures the digital signals that are sent from the sensor to the microcontroller. The digital signals are sent when the sensor detects a magnetic field. This is represented kind of like a pwm signal.
+                 
                     
             </div>
         </div>
