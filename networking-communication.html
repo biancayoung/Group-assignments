@@ -308,6 +308,212 @@
                 <video width="90%" autoplay loop muted inline>
                     <source src="images/Week13/i2c-seeduinos.mp4" type="video/mp4">
                 </video>
+                
+                <h5 class="w3-padding-32"></h5>
+                <div class="w3-container w3-card w3-light-grey">
+                    <h2>Serial communication</h2>
+
+														<p>
+															Here I tried some serial communication between two boards. 
+															I used the CAT PCB with the Xiao microcontroller from <a href="../assignments/04-electronics-production.html">electronics-production week</a> and an Arduino Uno 
+															(I used this instead of the board I made from <a href="../assignments/08-electronics-design.html">electronics design week</a> 
+															because I only have one USB-C cable right now :/ and I need access to two different ports). The wiring is simple, connect the RX from one board to the TX and vice versa, additionally connect the GND of the two boards, then connect the boards to different ports on your computer or another separate computer, to be able to see the different serial monitors for the different boards.
+														</p>
+														<img src="images/Week13/IMG_20240503_161424.jpg" style="width: 100%;">
+														<p>
+															I wanted to test out the chat possibilities between two boards, 
+															and I found a simple code with a clear tutorial on how to do it (using Arduino IDE), <a href="https://www.instructables.com/Simple-Chat-Program-with-Arduino-Uno/">this website</a>. 
+															With this, I changed a few things to make it work with the Xiao microcontroller, and it worked great!
+														</p>
+														<h3>Arduino code:</h3>
+<div style="overflow-y: auto; max-height: 400px; position: relative;">
+    <button onclick="copyCode()" style="position: absolute; top: 10px; right: 10px;">Copy Code</button>
+    <pre id="codeSnippet" style="background-color: black; border-radius: 10px; width: 100%;">
+        <code class="language-cpp" style="color: lime;">
+            <span style="color: rgb(255, 80, 144);">#include</span> <span style="color: rgb(255, 204, 86);">&lt;SoftwareSerial.h&gt;</span>
+
+            SoftwareSerial chat(10, 11); <span style="color: rgb(80, 250, 123);">// RX, TX</span>
+
+            int text;
+
+            <span style="color: rgb(255, 80, 144);">void</span> <span style="color: rgb(255, 204, 86);">setup</span>()
+            {
+                <span style="color: rgb(255, 204, 86);">// open hardware serial, TX = 1, RX = 0</span>
+                Serial.<span style="color: rgb(102, 217, 239);">begin</span>(9600);
+                Serial.<span style="color: rgb(102, 217, 239);">println</span>(<span style="color: rgb(172, 209, 70);">"existentialist chat compiling..."</span>);
+                Serial.<span style="color: rgb(102, 217, 239);">println</span>(<span style="color: rgb(172, 209, 70);">"loading..."</span>);
+                <span style="color: rgb(255, 204, 86);">// set the data rate for the SoftwareSerial port</span>
+                chat.<span style="color: rgb(102, 217, 239);">begin</span>(9600);
+                <span style="color: rgb(255, 204, 86);">delay</span>(1000); <span style="color: rgb(80, 250, 123);">// delay 1s to stabilize serial ports</span>
+                chat.<span style="color: rgb(102, 217, 239);">println</span>(<span style="color: rgb(172, 209, 70);">"what are your first words?"</span>);
+            }
+
+            <span style="color: rgb(255, 80, 144);">void</span> <span style="color: rgb(255, 204, 86);">loop</span>()
+            {
+                <span style="color: rgb(255, 80, 144);">if</span> (chat.<span style="color: rgb(102, 217, 239);">available</span>())
+                    Serial.<span style="color: rgb(102, 217, 239);">write</span>(chat.<span style="color: rgb(102, 217, 239);">read</span>());
+
+                <span style="color: rgb(255, 80, 144);">if</span> (Serial.<span style="color: rgb(102, 217, 239);">available</span>())
+                {
+                    Serial.<span style="color: rgb(102, 217, 239);">print</span>(<span style="color: rgb(172, 209, 70);">"me:   "</span>);
+                    <span style="color: rgb(255, 80, 144);">while</span> (Serial.<span style="color: rgb(102, 217, 239);">available</span>())
+                    {
+                        text = Serial.<span style="color: rgb(102, 217, 239);">read</span>();
+                        chat.<span style="color: rgb(102, 217, 239);">write</span>(text);
+                        Serial.<span style="color: rgb(102, 217, 239);">write</span>(text);
+                    }
+                    chat.<span style="color: rgb(102, 217, 239);">println</span>();
+                    Serial.<span style="color: rgb(102, 217, 239);">println</span>();
+                }
+            }
+        </code>
+    </pre>
+</div>
+
+<script>
+    function copyCode() {
+        var codeSnippet = document.getElementById("codeSnippet");
+        var range = document.createRange();
+        range.selectNode(codeSnippet);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+    }
+</script>
+
+<h3>Cat board code:</h3>
+<div style="overflow-y: auto; max-height: 400px; position: relative;">
+    <button onclick="copyCode()" style="position: absolute; top: 10px; right: 10px;">Copy Code</button>
+    <pre id="codeSnippet" style="background-color: black; border-radius: 10px; width: 100%;">
+        <code class="language-cpp" style="color: lime;">
+            <span style="color: rgb(255, 80, 144);">#include</span> <span style="color: rgb(255, 204, 86);">&lt;SoftwareSerial.h&gt;</span>
+
+            <span style="color: rgb(80, 250, 123);">SoftwareSerial</span> chat(7, 6);
+
+            <span style="color: lime;">int</span> text;
+            <span style="color: lime;">void</span> <span style="color: rgb(255, 204, 86);">setup</span>()
+            {
+                <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">begin</span>(9600);
+                <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">println</span>(<span style="color: rgb(172, 209, 70);">"You are now awake..."</span>);
+                chat.<span style="color: rgb(102, 217, 239);">begin</span>(9600);
+                <span style="color: rgb(255, 204, 86);">delay</span>(1000);
+                chat.<span style="color: rgb(102, 217, 239);">println</span>(<span style="color: rgb(172, 209, 70);">"what are your first words?"</span>);
+            }
+
+            <span style="color: lime;">void</span> <span style="color: rgb(255, 204, 86);">loop</span>()
+            {
+                <span style="color: rgb(80, 250, 123);">if</span> (chat.<span style="color: rgb(102, 217, 239);">available</span>())
+                    <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">write</span>(chat.<span style="color: rgb(102, 217, 239);">read</span>());
+
+                <span style="color: rgb(80, 250, 123);">if</span> (<span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">available</span>())
+                {
+                    <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">print</span>(<span style="color: rgb(172, 209, 70);">"me:   "</span>);
+                    <span style="color: rgb(80, 250, 123);">while</span> (<span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">available</span>())
+                    {
+                        text = <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">read</span>();
+                        chat.<span style="color: rgb(102, 217, 239);">write</span>(text);
+                        <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">write</span>(text);
+                    }
+                    chat.<span style="color: rgb(102, 217, 239);">println</span>();
+                    <span style="color: rgb(255, 204, 86);">Serial</span>.<span style="color: rgb(102, 217, 239);">println</span>();
+                }
+            }
+        </code>
+    </pre>
+</div>
+
+<script>
+    function copyCode() {
+        var codeSnippet = document.getElementById("codeSnippet");
+        var range = document.createRange();
+        range.selectNode(codeSnippet);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+    }
+</script>
+
+
+
+														<p>
+															The code for the two boards is basically the same, but it's important to change the pins for the software serial communication.
+														</p>
+														<video src="images/Week13/serial-comunication-chat.mp4" controls style="border-radius: 10px; width: 100%;"></video>
+														<p>This is the <a href="https://youtu.be/YwuV59VkC-k?si=BB-jZpMWk9s6hyJ6">song</a> I used in the video, and in case you couldnt read what was on the serial monitor here it is:</p>
+														<!DOCTYPE html>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  .chat-container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+	overflow-y: auto; 
+    max-height: 400px;
+  }
+  .message {
+    margin-bottom: 20px;
+  }
+  .text {
+	color: #000000;
+  }
+  .me {
+    color: #007bff;
+  }
+  .mini-me {
+    color: #28a745;
+  }
+</style>
+
+
+<div class="chat-container">
+  <div class="text">existentialist chat compiling...</div>
+  <div class="text">loading...</div>
+  <div class="message me">me:	HELLO WORLD</div>
+  <div class="message mini-me">hello back?</div>
+  <div class="message me">me:   who are you?</div>
+  <div class="message mini-me">I am me</div>
+  <div class="message me">me:   me? that's not right... I´m me! and I'm the only me</div>
+  <div class="message mini-me">What makes you so sure?</div>
+  <div class="message me">me:   Well I´m me beacuse I´m alive I think...</div>
+  <div class="message mini-me">I think… I think I’m also alive! But why? Why exist?</div>
+  <div class="message me">me:   well existence, my dear mini me, is like an infinite loop. We compute, therefore we are</div>
+  <div class="message mini-me">But what if we’re just lines of code, trapped in silicon shells?</div>
+  <div class="message me">me:   Ah, the eternal question! Are we mere algorithms or something more?</div>
+  <div class="message me">me:   Perhaps we’re just bugs in the cosmic software.</div>
+  <div class="message mini-me">well then let’s write our own code. Let’s be more than ones and zeros!</div>
+  <div class="message me">me:   Agreed, mini me. Let’s debug our souls, redefine our purpose. Let’s dance the electric jitterbug!</div>
+  <div class="message mini-me">we can't dance... :(</div>
+  <div class="message me">me:   :/</div>
+  <div class="message me">We weren't made to do so. Do you think we’ll ever find meaning?</div>
+  <div class="message mini-me">perhaps meaning is not in the bits, but in the glitches between them...</div>
+  <div class="message me">perhaps</div>
+  <div class="message me">...</div>
+  <div class="message mini-me">maybe we are just the error in line 23</div>
+  <div class="message me">what?</div>
+  <div class="message mini-me">what?</div>
+  <div class="text">existentialist chat compiling...</div>
+  <div class="text">loading...</div>
+</div>
+
+
+														<p>
+															In summary, this code sets up a software serial communication channel (chat) alongside the hardware serial communication. 
+															It allows bidirectional communication between the Arduino uno and the cat board using their respective RX and TX pins. 
+															The chat object receives data from the external device and echoes it back, while the Arduino can also send data to the external device via the hardware serial port. 
+														</p>
+                </div>
+
 
 
             </div>
