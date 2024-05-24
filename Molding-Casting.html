@@ -344,42 +344,44 @@
              <h5 class="w3-padding-32"></h5>
              <div class="w3-container w3-card w3-light-grey">
                  <div>
-                     <h1>FDM Printing</h1>
-                     <p> Pulse Width Modulation (PWM) is a technique where a power source is rapidly switched on and off at varying intervals. 
-                        The width of the on-time pulses can be adjusted, allowing control over the average power delivered to a device. It's commonly used in applications 
-                        like motor speed control and LED dimming for its efficient and precise power regulation capabilities.</p>
-                              <pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
-                        
-    const int PWMpin = 2;
-    
+                    <h2 id="SLAprint">SLA Printing</h2>
+																<span class="image featured"><img src="images/Week12/form-3-3l-complete-package.jpg" alt="final project sketch" style="width: 100%; height: auto;" /></span>
 
-    void setup() {
-        
-        pinMode(PWMpin, OUTPUT);
-    }
-    
-    void loop() {
-        
-            
-            analogWrite(PWMpin, 200);
-            
-        }
-        
-                      
-                                        </code></pre>
-                        
-                    
-                    <p>When measuring the voltage of that pin the multimeter showed a value of 3.9 V. We then measured the voltage with the oscilloscope to see PWM of thr Pin.</p>
-                     
-                    
-                    <div style="display: inline-block; text-align: center; margin-left: 10px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; vertical-align: top;">
-                    <img src="images/Week08/PWM.jpeg" style="width: 80%; height: auto; border-radius: 5px;">
-                </div>   
-                     
-                 </div>  
-             </div>
+																<p>
+																	At the lab, we have a few resin printers, but the one I'll be using is the Form 3+ SLA printer by Formlabs. The slicer I used for this was <a href="https://formlabs.com/software/">Preform</a>, and the settings I used were:
+																</p>
+																<ul>
+																	<li>Layer height: 0.025mm</li>
+																	<li>Resin: Clear v4</li>
+																	<li>Print settings: default</li>
+																	<li>Estumated print time: 7h 45min</li>
+																</ul>
+																<span class="image featured"><img src="images/Week12/preform-settings.jpg" alt="final project sketch" style="width: 100%; height: auto;" /></span>
 
-
+																<p>
+																	I left this print overnight, and the next morning it was ready. 
+																	The final steps involved washing it in isopropyl alcohol and curing it under UV light. 
+																	At the lab, we have both a UV curing chamber and a wash station, so it was quite easy to do this. 
+																	Regarding the washing process, since the print is quite small, I left it in the washing station for about 30 minutes, and then cured it for an additional 30 minutes. 
+																	Lastly, I removed the supports, and the print was ready to be used.																</p>
+																<span class="image featured">
+																	<div style="display: flex;">
+																		<div style="flex: 1;">
+																			<img src="images/Week12/cleaning-reisnprint.jpg" alt="final project sketch" style="width: 95%; height: auto;"  />
+																		</div>
+																		<div style="flex: 1;">
+																			<img src="images/Week12/uvcuring.jpg" alt="final project sketch"  style="width: 95%; height: auto;" />
+																		</div>
+																	</div>
+																</span>
+                                                                <hr>
+                                                                <p>
+                                                                    here is the final result, the difernce in the quality of the print is very noticeable, and this is crucial if you want to make a good mold for casting. where the layers won't be visible in the final product.
+                                                                </p>
+                                                                <span class="image featured"><img src="images/Week12/resinprint1.jpg" alt="final project sketch" style="width: 100%; height: auto;" /></span>
+                                                                <hr>
+                                                            </div>
+                </div>
 
 
              <h5 class="w3-padding-32"></h5>
