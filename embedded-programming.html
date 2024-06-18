@@ -617,6 +617,165 @@ while True:
 <li>Iterate based on testing results.</li></ul>  </ul> 
 <p>Each MCU family has its strengths and preferred applications, making it important to match the MCU’s capabilities with the project’s needs.</p>
              </div>
+
+
+                <!-- Fourth Grid -->
+                <h5 class="w3-padding-32"></h5>
+                <div class="w3-container w3-card w3-light-grey">
+                    <h1>Comparison of SAMD21 and ATMEGA-32 (Arduino Nano)</h1>
+                    <p>We compared the different architectures by looking int ot he datasheets of the <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf">SAMD21</a> and
+                        <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/doc2503.pdf">ATMEGA-32</a>.
+                         </p>
+                    
+                    
+                    <ul>
+                    <li><strong>Architecture and Manufacturer</strong></li>
+                    <ul>
+                    <li>SAMD21:</li>
+                    <ul>
+                    <li>Manufacturer: Microchip Technology (originally by Atmel, which was acquired by Microchip)</li>
+                    <li>Architecture: ARM Cortex-M0+ (32-bit)</li>
+                
+                    </ul>
+                    <li>ATmega32:</li>
+                    <ul>
+                    <li>Manufacturer: Microchip Technology (originally by Atmel)</li>
+                    <li>Architecture: AVR (8-bit)</li>
+                    </ul></ul>
+                    <li><strong>Performance</strong></li>
+                    <ul>
+                    <li>SAMD21:</li>
+                    <ul>
+                    <li>CPU Speed: Up to 48 MHz</li>
+                    <li>Performance: Higher due to the 32-bit ARM Cortex-M0+ core</li>
+                    <li>Flash Memory: Up to 256 KB</li>
+                    <li>SRAM: Up to 32 KB</li>
+</ul>
+                    <li>ATmega32:</li>
+                    <ul>
+                    <li>CPU Speed: Up to 16 MHz</li>
+                    <li>Performance: Lower due to the 8-bit AVR core</li>
+                    <li>Flash Memory: 32 KB</li>
+                    <li>SRAM: 2 KB</li>
+</ul>
+                </ul>   
+                 <li><strong>Power Consumption</strong></li>
+                    <ul><li>SAMD21:</li>
+                    <ul>
+                    <li>Designed for low power consumption with various sleep modes and power-saving features.</li>
+                    <li>Typically operates at lower voltages (1.62V to 3.63V).</li>
+                   </ul> 
+                   ATmega32:
+                    <ul>
+                    <li>Consumes more power compared to SAMD21, though also has power-saving modes.</li>
+                    <li>Operates at higher voltages (4.5V to 5.5V).</li>
+</ul></ul>
+                   <li><strong>Peripherals and Connectivity</strong> </li>
+                   <ul>
+                   <li> SAMD21:</li>
+                    <ul>
+                    <li>Rich set of peripherals including multiple UARTs, SPI, I2C, ADCs, DACs, timers, and more.</li>
+                   <li> Advanced connectivity options such as USB, I2S, and SERCOM (configurable serial communication).</li></ul>
+                   <li> ATmega32:</li>
+                    <ul>
+                    <li>Fewer peripherals compared to SAMD21.</li>
+                    <li>Includes basic peripherals like UART, SPI, I2C, ADCs, timers, and a few GPIOs.</li>
+
+</ul></ul></ul>
+<p>The next step was to compare the performance, power consumption, and peripherals with to boards. The board used in the tests above with the SAMD 21 and an Arduino Nano.</p>
+
+<p>We tested the upload time of the code in the Arduino IDE, the power consumption of the board while in sleep mode and the power consumption, when lighting up the LED.</p>
+<p>Additionally, we tested the UART (serial communication) of both boards and total time taken to send a specified amount of data over the serial connection as well as power consumption.</p>
+<table>
+    <tbody><tr>
+        <th>Characteristics</th>
+        <th>SAMD21</th>
+        <th>ATMEGA-32</th>
+    </tr>
+    <tr>
+        <td>Upload Time for first test</td>
+        <td>0.049 s</td>
+        <td>0.51 s</td>
+    </tr>
+    <tr>
+        <td>Power Consumption (Sleeping)</td>
+        <td>88.4 mW</td>
+        <td>117.3 mW</td>
+    </tr>
+    <tr>
+        <td>Power Comsumption with LED connected</td>
+        <td>98.0 mW</td>
+        <td>156.5 mW</td>
+    </tr>
+    <tr>
+        <td>Upload Time for second test</td>
+        <td>0.05 s</td>
+        <td>0.84 s</td>
+
+    </tr>
+    <tr>
+        <td>Power consumption (UART)</td>
+        <td>89,64 mW</td>
+        <td>119.1 mW</td>
+
+    </tr>
+    <tr>
+        <td>Time for Communication</td>
+        <td>0.017 s</td>
+        <td>3.224 s</td>
+
+    </tr>
+
+</tbody></table>
+<p>Code for the first test:</p>
+<pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+
+    // Define pins
+    const int ledPin = 8;  // LED pin
+    
+    
+    void setup() {
+      
+      pinMode(ledPin, OUTPUT);  // Set LED pin as output
+    }
+    
+    void loop() {
+      // Test 1: Blink LED
+      digitalWrite(ledPin, HIGH);
+      delay(2000);  // 500 ms delay
+      digitalWrite(ledPin, LOW);
+      delay(2000);  // 500 ms delay
+    
+     
+    }</code></pre>
+
+<p>Code for the second test:</p>
+<pre style="border: solid 1px #ccc; font-size: 0.85em;"><code>
+
+    void setup() {
+        Serial.begin(9600);  // Initialize UART
+      
+      }
+      
+      void loop() {
+      
+      
+        // Test 2: UART Communication
+        unsigned long startTime = millis();
+        for (int i = 0; i < 100; i++) {
+          Serial.println("Testing UART communication...");
+        }
+        unsigned long endTime = millis();
+        Serial.print("UART test duration: ");
+        Serial.print(endTime - startTime);
+        Serial.println(" ms");
+      }
+</code></pre>
+<p>The SAMD21 outperforms the ATmega32 in several key areas. The SAMD21 has significantly faster upload times,
+     consuming less power in sleep mode, with an LED connected, and during UART communication. It also demonstrates vastly superior 
+     speed in UART communication, making it more efficient and better suited for high-performance, low-power applications. 
+</p>    <p>Overall, the SAMD21 offers better performance and power efficiency, making it the preferable choice for modern embedded applications.</p>
+</div>
             </div>
         </div>
 
